@@ -16,13 +16,10 @@ As mentioned above, we are looking to maximize the margin between the data point
 
 $$
 \left\{
-    \begin{aligned}
       & k_{i\omega} / k_{p\omega} = 2\pi \times 10 \\
       & {\left|
         \frac{k_{p\omega}s + k_{i\omega}}{s} \cdot \frac{1}{Ts + 1}
       \right|}_{s = j \cdot 2\pi} = 1
-    \end{aligned}
-  \right.
 $$
 
 
