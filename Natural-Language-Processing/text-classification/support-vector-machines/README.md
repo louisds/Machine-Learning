@@ -22,6 +22,16 @@ c(x, y, w) = \begin{cases}
        \end{cases} 
 $$
 
+which can also be written as:
 
+$$ 
+c(x, y, w) = (1 - y x^T w)_+
+$$
+
+So the loss is 0 if the predicted value and the actual value are of the same sign. If they are not, we then calculate the loss value. To balance the margin maximization and loss, we also add a regularization parameter $\lambda$ to the cost function. This gives:
+
+$$
+\mathcal{L}
+$$
 
 
