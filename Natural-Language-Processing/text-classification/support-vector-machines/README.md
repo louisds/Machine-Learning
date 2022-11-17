@@ -31,7 +31,12 @@ $$
 So the loss is 0 if the predicted value and the actual value are of the same sign. If they are not, we then calculate the loss value. To balance the margin maximization and loss, we also add a regularization parameter $\lambda$ to the cost function. This gives:
 
 $$
-\mathcal{L}
+\mathcal{L} = \sum_{i=1}^{n} (1 - y_i x_i^T w)_{+} \ + \lambda \lVert w \rVert
 $$
 
+which has to be minimized with respect to $w$. Taking the derivative, the parameter update can be split into two situations. When there is no misclassification, i.e our model correctly predicts the class of our data point, we only have to update the gradient from the regularization parameter:
+
+$$
+w <- w - \eta (2 \lambda w)
+$$
 
