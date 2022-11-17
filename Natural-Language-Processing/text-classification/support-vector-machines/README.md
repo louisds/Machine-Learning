@@ -17,6 +17,7 @@ As mentioned above, we are looking to maximize the margin between the data point
 $$ 
 c(x, y, w) = \begin{cases} 
             0, \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \text{if} \ y x^T w \geq 1 \\
+             \\
             (1 - y x^T w) \  \ \ \text{else} \\
        \end{cases} 
 $$
