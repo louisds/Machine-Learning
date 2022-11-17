@@ -15,7 +15,9 @@ In what way is this different than Logistic Regression? In binary logistic regre
 As mentioned above, we are looking to maximize the margin between the data points and the hyperplane. The loss function that performs this optimization is called the "hinge loss":
 
 $$ 
-f(x) = \begin{cases} \frac{1}{b-a} \\ 0 \end{cases} 
+f(x) = \begin{cases} \frac{1}{b-a} 
+\\ 0 
+\end{cases} 
 $$
 
 
