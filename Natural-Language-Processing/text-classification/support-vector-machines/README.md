@@ -14,12 +14,8 @@ In what way is this different than Logistic Regression? In binary logistic regre
 
 As mentioned above, we are looking to maximize the margin between the data points and the hyperplane. The loss function that performs this optimization is called the "hinge loss":
 
-$$
-\left\{
-      & k_{i\omega} / k_{p\omega} = 2\pi \times 10 \\
-      & {\left|
-        \frac{k_{p\omega}s + k_{i\omega}}{s} \cdot \frac{1}{Ts + 1}
-      \right|}_{s = j \cdot 2\pi} = 1
+$$ 
+f(x) = \begin{cases} \frac{1}{b-a} \\ 0 \end{cases} 
 $$
 
 
