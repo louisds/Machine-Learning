@@ -37,12 +37,12 @@ $$
 which has to be minimized with respect to $w$. Taking the derivative, the parameter update can be split into two situations. When there is no misclassification, i.e our model correctly predicts the class of our data point, we only have to update the gradient from the regularization parameter:
 
 $$
-w \leftarrow w - \eta (2 \lambda w)
+w \leftarrow \  w - \eta (2 \lambda w)
 $$
 
 When there is a misclassification, i.e our model make a mistake on the prediction of the class of our data point, we include the loss along with the regularization parameter to perform gradient update:
 
 $$
-w \leftarrow w + \eta (y_i x_i - 2 \lambda w)
+w \leftarrow \  w + \eta (y_i x_i - 2 \lambda w)
 $$
 
