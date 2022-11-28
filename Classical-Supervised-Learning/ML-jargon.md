@@ -20,7 +20,7 @@ $$y = f + \varepsilon$$
 
 with:
 
-$$\mathbb{E}(\varepsilon) = 0, \: Var(\varepsilon) = \sigma^2 \Rightarrow \mathbb{E}(\varepsilon^2) = \sigma^2$$
+$$\mathbb{E}(\varepsilon) = 0, \ \ Var(\varepsilon) = \sigma^2 \Rightarrow \mathbb{E}(\varepsilon^2) = \sigma^2$$
 
 In regression, we estimate this response variable:
 
