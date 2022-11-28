@@ -2,11 +2,11 @@
 
 ## Bias
 
-$$Bias(\hat{f}) = E(\hat{f}) - f$$
+$$\text{Bias}(\hat{f}) = E(\hat{f}) - f$$
 
 ## Variance
 
-
+$$\text{Var}(\hat{f}) = E\left[\left(\hat{f} - E(\hat{f})\right)^2\right]$$
 
 ## Bias-Variance Decomposition
 
