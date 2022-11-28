@@ -2,6 +2,8 @@
 
 ## Bias
 
+The difference between the estimator's expected value and the true value of the variable being estimated.
+
 $$\text{Bias}(\hat{f}) = \mathbb{E}(\hat{f}) - f$$
 
 ## Variance
