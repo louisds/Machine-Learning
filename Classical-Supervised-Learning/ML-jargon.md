@@ -14,7 +14,7 @@ The Bias variance decomposition can be written as:
 
 $$\mathbb{E}(f-\hat{f})^2 = Bias(\hat{f})^2 + Var(f)$$
 
-The response variable `y` can be defined as a true function `f` plus noise `$\varepsilon$`. This can be written as follows:
+The response variable `y` can be defined as a true function `f` plus noise $\varepsilon$. This can be written as follows:
 
 $$y = f + \varepsilon$$
 
