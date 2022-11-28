@@ -1,4 +1,4 @@
-# Evaluation Metrics
+# Evaluation Metrics for Classification
 
 ## Precision
 
@@ -12,7 +12,7 @@ TP = Spam emails flagged as spam
 
 FP = Non-spam emails flagged as spam
 
-## Recall (aka. sensitivity, TPR)
+## Recall (aka. sensitivity, hit rate, TPR)
 
 Ratio of positive instances that are correctly classified by the classifier. Of spam emails, how many are correctly flagged as spam.
 
@@ -46,9 +46,47 @@ Moral of the story: increasing precision reduces recall, and vice versa. If we i
 
 Overall, increasing the threshold will lower the recall (always the case) and increase the precision (sometimes it can go down a bit as well, as it depends on total of predicted TRUE-values).
 
+## PR-curve
+
+The PR (precision-recall) curve plots the precision against recall. It is constructed by calculating the precision and recall for different values of the threshold and is a (most of the time) decreasing function - as precision decreases for decreasing recall.
+
+## Specificity (aka. selectivity, TNR)
+
+Ratio of negative instances that are correctly classified as negative. Of all negative predictions (e.g. mails flagged as non-spam), how many were correct. In other words, what is the percentage of non-spam mails that were flagged as non-spam. 
+
+$$
+\text{Specificity} = \frac{TN}{TN+FP}
+$$
+
+## False alarm ratio (aka. fall-out, FPR)
+
+Ratio of negative instances that are incorrectly classified as positive. Of all negative predictions (e.g. mails flagged as non-spam), how many were incorrect. In other words, what is the percentage of non-spam mails that were flagged as spam. 
+
+$$
+\text{False Alarm Ratio} = \frac{FP}{TN+FP} = 1 - \text{Specificity}
+$$
+
 ## ROC-curve
 
-The ROC (receiver operating characteristic) curve
+The ROC (receiver operating characteristic) curve plots the TPR (Recall) against the FPR (False alarm ratio). This is an increasing function, as the higher the recall (TPR), the more false positives (FPs) the classifier produces. The diagonal of the diagram is the ROC curve of a purely random classifier. A good classifier stays away as far as possible from this line (towards the top left corner).
+
+## AUC
+
+The AUC (area under the curve) is a way of comparing the ROC curve of two classifiers. A perfect classifier will for example have an AUC equal to one. A random classifier will have an AUC equal to 0.5. 
+
+## PR vs. ROC curve
+
+Choose the PR-curve whenever the positive class is rare (e.g. not a lot of spam mails) or when you care more about FPs (e.g. flagging non-spam mails as spam) than FNs (e.g. flagging spam mails as non-spam). The ROC curve might look really good (e.g. high AUC), but this can be due to the fact that there are only a few observations of the positive class. 
+
+## OvR strategy
+
+The OvR (One vs. Rest) or OvA (One vs. All) Strategy can be used when using binary classifiers to perform multiclass classification. For example in MNIST, we might build 10 binary classifiers (0-detector, 1-detector, ...) and use the output with the highest score as the prediction. The 0-detector, for example, is a classifier that outputs whether or not the digit is a zero. 
+
+## OvO strategy
+
+The OvO (One vs. One) Strategy can be used when using binary classifiers to perform multiclass classification. For example in MNIST, we can train a binary classifier for every pair of digits: 0s vs 1s, 0s vs 2s, etc. We run the image through all classifiers and look which class wins the most duels. If there are N classes, we need to train N*(N-1)/2 classifiers. The advantage is that each classifier only needs to be trained on the part of the dataset that contains the two classes it compares. 
+
+This strategy is preferred for algorithms that scale poorly with the size of the training set (e.g. SVMs). For these algorithms OvO is preferred because it is faster to train many classifiers on small training sets than train a few classifiers on large training sets. 
 
 
 
