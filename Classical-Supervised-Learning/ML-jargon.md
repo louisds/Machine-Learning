@@ -1,3 +1,45 @@
+# Bias-Variance
+
+## Bias
+
+$$Bias(\hat{f}) = E(\hat{f}) - f$$
+
+## Variance
+
+
+
+## Bias-Variance Decomposition
+
+The response variable `y` can be defined as a true function `f` plus noise `\epsilon`. This can be written as follows:
+
+$$y = f + \varepsilon$$
+
+with:
+
+$$E(\varepsilon) = 0, \: Var(\varepsilon) = \sigma^2 \Rightarrow E(\varepsilon^2) = \sigma^2$$
+
+In regression, we estimate this response variable:
+
+$$\hat{y} = \hat{f}$$
+
+The Bias variance decomposition can be written as:
+
+$$E(f-\hat{f})^2 = Bias(\hat{f})^2 + Var(f)$$
+
+$$\Leftrightarrow E(y - \varepsilon-\hat{f})^2 = Bias(\hat{f})^2 + Var(f)$$
+
+$$\Leftrightarrow E [(y-\hat{f})-\varepsilon]^2 = Bias(\hat{f})^2 + Var(f)$$
+
+$$\Leftrightarrow E (y-\hat{f})^2 - E[2\varepsilon(y-\hat{f})] + E(\varepsilon^2) = Bias(\hat{f})^2 + Var(f) $$
+
+$$\Leftrightarrow E (y-\hat{f})^2 - 2\sigma^2  + \sigma^2 = Bias(\hat{f})^2 + Var(f) $$
+
+Which can be written as:
+
+$$E (y-\hat{f})^2 = Bias(\hat{f})^2 + Var(f) + \sigma^2$$
+
+The left hand term is the MSE as defined in subsection 1.1 (with the y-values). The above formula proves that if one substracts the squared bias and variance for this data set from the above defined MSE value, this results in $\sigma^2$. The latter being equal to 1 in this case. To show this, one could also change the sigma value in the definition of the noise. If one would for example use a $\sigma = 2$, the difference would be 4.
+
 # Evaluation Metrics for Classification
 
 ## Precision
