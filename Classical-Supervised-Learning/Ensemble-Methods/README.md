@@ -1,19 +1,5 @@
 # Ensemble Learning and Random Forests
 
-https://climbtheladder.com/random-forest-interview-questions/
-
-https://analyticsarora.com/8-unique-machine-learning-interview-questions-about-random-forests/
-
-https://iq.opengenus.org/questions-on-random-forest/
-
-https://krishnaik.in/2022/03/01/important-interview-questions-on-random-forest-machine-learning-algorithm/
-
-https://medium.com/@penggongting/in-interview-how-to-answer-compare-random-forest-and-gradient-boosting-decision-tree-105de35cff3b
-
-https://www.linkedin.com/pulse/top-interview-question-machine-learning-decision-tree-deepak-chaubey/
-
-https://www.mlstack.cafe/blog/random-forest-interview-questions
-
 If we aggregate the predictions of a group of predictors (such as classifiers or regressors), we will often get better predictions than with the best individual predictor. A group of predictors is called an `ensemble`, and an ensemble learning algorithm is called an ensemble method.
 
 ## Voting Classifiers
