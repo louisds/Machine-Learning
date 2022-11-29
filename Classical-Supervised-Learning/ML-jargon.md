@@ -66,6 +66,18 @@ $$
 
 We cannot interpret many insights from one single result but it gives us a real number to compare against other model results and help us select the best regression model.
 
+## Root Mean Square Error (RMSE)
+
+The Root Mean Square Error(RMSE) is the square root of MSE. In some cases, it is used more commonly than MSE for two reasons. Firstly, sometimes the MSE value can be too big to compare easily between models. Secondly, by taking the square root we take the units back to the original units.
+
+## Mean Absolute Error (MAE)
+
+Mean Absolute Error (MAE) is similar to MSE. However, instead of the sum of square of error in MSE, MAE is taking the sum of the absolute value of error:
+
+$$
+MAE = \frac{1}{N} \sum_i^N \left\ y_i - \hat{y}_i \right|
+$$
+
 # Evaluation Metrics for Classification
 
 ## Precision
