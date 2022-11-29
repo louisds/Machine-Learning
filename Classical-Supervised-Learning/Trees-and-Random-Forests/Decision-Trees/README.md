@@ -20,7 +20,7 @@ An example of a simple decision tree that classifies flowers from the Iris datas
 
 <img src="https://github.com/louisds/Machine-Learning/blob/main/Classical-Supervised-Learning/Trees-and-Random-Forests/images/tree.png"  width="300">
 
-A decision tree is drawn upside down with its root at the top (root node) and has a certain tree depth (equal to two example). It consists of internal nodes (conditions), based on which the tree splits into edges (branches). The end of the branch that doesn’t split anymore (no child nodes) is called the leaf node (decision). Each node tells us how many $samples$ it contains, with $values$ telling us how much of each class. Finally, a node's Gini attribute measures its impurity. A node is pure (gini=0) if all training instances it applies to belong to the same class. 
+A decision tree is drawn upside down with its root at the top (root node) and has a certain tree depth (equal to two example). It consists of internal nodes (conditions), based on which the tree splits into edges (branches). The end of the branch that doesn’t split anymore (no child nodes) is called the leaf node (decision). Each node tells us how many $samples$ it contains, with $values$ telling us how much of each class. Finally, a node's Gini attribute measures its impurity. A node is pure (gini=0) if all training instances it applies to belong to the same class. A decision tree is a non-parametric model because the number of parameters is not determined prior to training. 
 
 ## Evaluation Metrics at Nodes
 
@@ -36,12 +36,23 @@ $$
 H_i = - \sum_{k=1}^{n} p_{i,k} \log{(p_{i,k})}
 $$
 
-where the $p_{i,k}$-values equal to zero are not accounted in the sum. 
+where the $p_{i,k}$-values equal to zero are not accounted in the sum. Most of the time, both metrics lead to similar trees and they do not make a big difference (Gini score is a little faster to calculate so this would be a good default). When they differ, Gine score tends to isolate the most frequent class in its own branch of the tree (like the example above), while entropy tends to produce more balanced trees. 
 
 ## The Classification and Regression Trees (CART) Algorithm
+
+Scikit-Learn uses the CART algorithm to create (aka. grow) its trees. The algorithm works by first splitting the training set into two subsets using a single feature $k$ and a threshold $t_k$. It searches the pair $(k, t_k)$ that produces the purest subsets (weighted by their size). The CART cost function for classification when using the Gini impurity score is given by:
+
+$$
+J(k, t_k) = \frac{m_{left}}{m} G_{left} + \frac{m_{right}}{m} G_{right}
+$$
 
 ## Advantages of Decision Trees
 
 * They require very little data preparation. They don't require feauture scaling or centering.
 * It can cover both regression and classification.
-* 
+
+
+## Interview Questions
+
+
+
