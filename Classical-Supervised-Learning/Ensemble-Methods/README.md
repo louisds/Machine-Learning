@@ -77,4 +77,20 @@ The learning rate parameter scales the contribution of each predictor. If we set
 Another technique is called `Stochastic Gradient Boosting`, where each predictor is trained on a random subset (e.g. 25%) of the training instances. This technique trades a higher bias for a lower variance, and it also speeds up training considerably. Lastly, we have `XGBoost` (Extreme Gradient Boosting), which is an optimized implementation of the Gradient Boosting algorithm, that extremely fast, scalable, and portable. 
 
 
+## Stacking
+
+`Stacking` (short for stacked generalization), is based on the following simple idea: instead of using trivial functions (such as hard voting) to aggregate the predictions, we train a model to perform this aggregation. This model is called a `blender` or a `meta learner`. To train the blender, a common approach is to use a hold-out set, to ensure that the predictions are clean. 
+
+## Interview Questions
+
+If your AdaBoost ensemble underfits the training data, which hyperparameters should you tweak and how?
+
+> We could try to increase the number of estimators or reducing the regularization hyperparameters of the base estimator. We could also try slightly increasing the learning rate. 
+
+If your Gradient Boost ensemble overfits the training data, which hyperparameters should you tweak and how?
+
+> We could try to decrease the learning rate, or use early stopping to find the right number of predictors (we probably have too many). 
+
+
+
 
