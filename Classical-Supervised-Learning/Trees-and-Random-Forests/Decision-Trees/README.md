@@ -71,9 +71,4 @@ As decision trees are non-parametric models, they are prone to overfitting (i.e.
 > This is a block quote,
 > using current syntax
 
-<!-- This is commented out. -->
-
-..but, the following is a spoiler!
-
-! This is a spoiler,
-! using a new syntax
+>! Spoiler text
