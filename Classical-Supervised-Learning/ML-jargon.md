@@ -51,7 +51,7 @@ The left hand term is the MSE of the response variable and the predicted value.
 The R Squared value measures how much variability in the dependent variable (Y) can be explained by the model. It can be calculated as:
 
 $$
-R^2 = 1 - \frac{\sum \left(y_i - \hat{y}_i \right)^2}{y_i - \bar{y}_i \right)^2}
+R^2 = 1 - \frac{\sum \left(y_i - \hat{y}_i \right)^2}{\sum \left(y_i - \bar{y}_i \right)^2}
 $$
 
 # Evaluation Metrics for Classification
