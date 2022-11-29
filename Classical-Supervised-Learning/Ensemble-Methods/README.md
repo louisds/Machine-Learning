@@ -91,6 +91,8 @@ If your Gradient Boost ensemble overfits the training data, which hyperparameter
 
 > We could try to decrease the learning rate, or use early stopping to find the right number of predictors (we probably have too many). 
 
+Difference between Random Forest and GBDT in terms of Bias-Variance trade-off
 
+> In Random Forest, each DT has low bias and thus high variance. By averaging them together, we can achieve a much lower variance by compromising a tiny bit of bias. In GBDT, each DT has high bias and low variance. So by combining them together sequentially, we can keep the low variance but also get a low bias.
 
 
