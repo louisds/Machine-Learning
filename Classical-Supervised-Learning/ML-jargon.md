@@ -46,13 +46,25 @@ The left hand term is the MSE of the response variable and the predicted value.
 
 # Evaluation Metrics for Regression
 
-# R-Squared
+## R-Squared
 
 The R Squared value measures how much variability in the dependent variable (Y) can be explained by the model. It can be calculated as:
 
 $$
 R^2 = 1 - \frac{\sum \left(y_i - \hat{y}_i \right)^2}{\sum \left(y_i - \bar{y}_i \right)^2}
 $$
+
+The R-Squared value lies between 0 to 1 (can technically be smaller than 0), with a value closer to 1 indicating a better fit between prediction and actual value. It is a good measure to determine how well the model fits the dependent variables. However, it does not take into consideration of the overfitting problem. If our regression model has many independent variables (the model is too complicated) it may fit very well to the training data but performs badly for our testing data. That is why Adjusted R Squared is introduced because it will penalize additional independent variables added to the model and adjust the metric to prevent overfitting issues.
+
+## Mean Square Error (MSE)
+
+While the R Squared value is a relative measure of how well the model fits dependent variables, the Mean Square Error (MSE) is an absolute measure of the goodness for the fit.
+
+$$
+MSE = \frac{1}{N} \sum_i^N \left(y_i - \hat{y}_i \right)^2
+$$
+
+We cannot interpret many insights from one single result but it gives us a real number to compare against other model results and help us select the best regression model.
 
 # Evaluation Metrics for Classification
 
