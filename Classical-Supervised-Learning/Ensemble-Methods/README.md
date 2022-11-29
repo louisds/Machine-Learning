@@ -51,7 +51,7 @@ One way for a new predictor to correct its predecessor is to pay a bit more atte
 In the AdaBoost algorithm, each instance weight $w^{(i)}$ is initialized to $1/m$, with $m$ the amount of training instances. After the $j^{th}$ predictor is trained, its weighted error rate $r_j$ is computed on the training set as:
 
 $$
-r_j = \frac{\sum_{n=1}^{m}w^{(i) }{\sum^{m} w^{(i)}}}
+r_j = \frac{\sum_{n=1}^{m}w^{(i)}}{\sum^{m} w^{(i)}}}
 $$
 
 
