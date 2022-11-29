@@ -74,10 +74,16 @@ What would be the approximate depth of a Decision Tree trained (without restrict
 
 Is the Gini impurity of a node generally lower or greater than its parent's?
 
-> This is a block quote
+> In general, it will be lower than its parent's. This is due to the CART training algorithm's cost function, which splits each node in a way that it minimizes the weighted sum of its children's impurities. However, it is possible to have an increase in impurity (e.g. if the split leads to a significant decrease in the other child's impurity. 
 
 If the DT is underfitting the training data, is it a good idea to scale the input features?
 
+> No, because DTs don't care if the input features are scaled or centered. 
+
 If it takes roughly an hour to train a DT on 1M instances, how long will the training on 10M instances take?
 
+> The computational complexity of training a DT is of the order $n \times m \log(m)$. Doing the calculation, 10M instances will take roughly 11.7 times longer than training 1M instances. 
+
 If a training set contains 100K instances, will presorting the data speed up training?
+
+> No, this would only work if the training set contains a couple of thousand instances, not 100K. 
