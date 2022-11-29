@@ -54,6 +54,18 @@ $$
 r_j = \frac{\sum_{\hat{y^{(i)}} \neq y^{(i)}} w^{(i)}}{\sum w^{(i)}}
 $$
 
+The predictor's weight $\alpha_j$ is then computed using:
+
+$$
+\alpha_j = \eta \log \frac{1-r_j}{r_j}
+$$
+
+where $\eta$ is the learning rate. The more accurate the predictor, the higher its weight will be. For random guessing, its weight will be close to zero. If it performs worse than random guessing, its weight will be negative. Next, the AdaBoost algorithm uses the following update rule for the weights of the instances that were misclassified:
+
+$$
+w^{(i)} \leftarrow w^{(i)} \exp \left(\alpha_j\right) \ \ \text{if} \hat{y^{(i)}_j} \neq y^{(i)}
+$$
+
 
 
 
