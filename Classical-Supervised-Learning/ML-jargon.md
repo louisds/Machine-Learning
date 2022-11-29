@@ -78,6 +78,8 @@ $$
 MAE = \frac{1}{N} \sum_i^N \left| y_i - \hat{y}_i \right|
 $$
 
+MSE gives a larger penalization to big prediction errors (by squaring them), while MAE treats all errors the same.
+
 # Evaluation Metrics for Classification
 
 ## Precision
