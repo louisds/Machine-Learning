@@ -75,7 +75,7 @@ The Root Mean Square Error(RMSE) is the square root of MSE. In some cases, it is
 Mean Absolute Error (MAE) is similar to MSE. However, instead of the sum of square of error in MSE, MAE is taking the sum of the absolute value of error:
 
 $$
-MAE = \frac{1}{N} \sum_i^N \left\ y_i - \hat{y}_i \right|
+MAE = \frac{1}{N} \sum_i^N \left| y_i - \hat{y}_i \right|
 $$
 
 # Evaluation Metrics for Classification
