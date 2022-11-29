@@ -14,4 +14,16 @@ https://www.linkedin.com/pulse/top-interview-question-machine-learning-decision-
 
 https://www.mlstack.cafe/blog/random-forest-interview-questions
 
+## Overview of a Decision Tree
 
+An example of a simple decision tree of depth 2 that classifies the Iris dataset is shown below.
+
+
+
+A decision tree is drawn upside down with its root at the top (root node). It consists of internal nodes (conditions), based on which the tree splits into edges (branches). The end of the branch that doesn’t split anymore (no child nodes) is called the leaf node (decision).
+
+## Advantages of Decision Trees
+
+* They require very little data preparation. They don't require feauture scaling or centering.
+* It can cover both regression and classification.
+* 
