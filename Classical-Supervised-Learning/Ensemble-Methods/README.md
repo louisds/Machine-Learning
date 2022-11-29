@@ -40,3 +40,23 @@ It is possible to make the trees even more random by also using random threshold
 
 An other aspect of random forests is `feature importance`, which is measured by looking at how much the tree nodes that use that feature reduce impurity on average (across all trees in the forest). More precisely, it is a weighted average, where each node's weight is equal to the number of training samples that are associated with it. 
 
+## Boosting
+
+`Boosting` refers to any ensemble method that can combine several weak learners into a strong learner. The general idea of most boosting methods is to train predictors sequentially, each trying to correct its predecessor. The most popular boosting methods are `AdaBoost`(Adaptive Boosting) and `Gradient Boosting`. 
+
+### AdaBoost
+
+One way for a new predictor to correct its predecessor is to pay a bit more attention to the training instances that the predecessor underfitted. As a result, the new predictors will focus more and more on the hard cases. This is done by changing the relative weight of the missclassified training instances in the loss function. This `sequential learning` technique has some similarities with Gradient Descent, except that instead of tweaking a single predictor's parameters, Adaboost adds predictors to the ensemble, gradually making it better. The downside of this sequential learning technique is that it cannot be parellelized, since each predictor can only be trained after the previous predictor has been trained and evaluated. As a result, it doesn't scale as well as bagging or pasting.
+
+In the AdaBoost algorithm, each instance weight $w^{(i)}$ is initialized to $1/m$, with $m$ the amount of training instances. After the $j^{th}$ predictor is trained, its weighted error rate $r_j$ is computed on the training set as:
+
+$$
+r_j = \frac{\sum_{n=1}^{m}w^{(i) }{\sum^{m} w^{(i)}}}
+$$
+
+
+
+
+
+
+
