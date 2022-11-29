@@ -18,6 +18,8 @@ https://www.mlstack.cafe/blog/random-forest-interview-questions
 
 An example of a simple decision tree of depth 2 that classifies the Iris dataset is shown below.
 
+<img src="https://github.com/louisds/Machine-Learning/blob/main/Classical-Supervised-Learning/Trees-and-Random-Forests/images/tree.png"  width="200">
+
 
 
 A decision tree is drawn upside down with its root at the top (root node). It consists of internal nodes (conditions), based on which the tree splits into edges (branches). The end of the branch that doesn’t split anymore (no child nodes) is called the leaf node (decision).
