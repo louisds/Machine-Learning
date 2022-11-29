@@ -68,7 +68,16 @@ As decision trees are non-parametric models, they are prone to overfitting (i.e.
 
 ## Interview Questions
 
-> This is a block quote,
-> using current syntax
+What would be the approximate depth of a Decision Tree trained (without restrictions) on a training set with 1M instances?
 
->! Spoiler text
+> This is a block quote
+
+Is the Gini impurity of a node generally lower or greater than its parent's?
+
+> This is a block quote
+
+If the DT is underfitting the training data, is it a good idea to scale the input features?
+
+If it takes roughly an hour to train a DT on 1M instances, how long will the training on 10M instances take?
+
+If a training set contains 100K instances, will presorting the data speed up training?
