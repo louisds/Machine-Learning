@@ -68,5 +68,10 @@ As decision trees are non-parametric models, they are prone to overfitting (i.e.
 
 ## Interview Questions
 
+> This is a block quote,
+> using current syntax
 
+..but, the following is a spoiler!
 
+! This is a spoiler,
+! using a new syntax
