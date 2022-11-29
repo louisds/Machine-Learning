@@ -66,11 +66,15 @@ $$
 w^{(i)} \leftarrow w^{(i)} \exp \left(\alpha_j\right) \ \ \text{if} \ \ \hat{y^{(i)}_j} \neq y^{(i)}
 $$
 
-After which all the instance weights are normalized. Finally, a new predictor is trained using the updated weights, and the whole process is repeated. The algorithm stops when the desired number of predictors is reached, or when a perfect predictor is found. To make predictions, AdaBoost simply computes the predictions of all predictors and weighs them using the predictor weights $\apha_j$. The predicted class is the one that gets the majority of weighted votes. 
+After which all the instance weights are normalized. Finally, a new predictor is trained using the updated weights, and the whole process is repeated. The algorithm stops when the desired number of predictors is reached, or when a perfect predictor is found. To make predictions, AdaBoost simply computes the predictions of all predictors and weighs them using the predictor weights $\alpha_j$. The predicted class is the one that gets the majority of weighted votes. 
 
+### Gradient Boost
 
+Just like AdaBoost, Gradient Boosting works by sequentially adding predictors to an ensemble, each one correcting its predecessor. However, instead of tweaking the instance weights at every iteration (like AdaBoost), this method tries to fit the new predictor to the `residual errors` made by the previous predictor. The ensemble is used to make a new prediction by adding up the predictions of all the predictors, since we are working with residuals. Using regression trees with Gradient boosting is a popular example and is often referred to as `GBRT`(Gradient Boosted Regression Trees). 
 
+The learning rate parameter scales the contribution of each predictor. If we set it to a low value (e.g. 0.1), we will need more predictors in the ensemble to fit the training set, but the predictions will usually generalize better. This is a regularization technique called `shrinkage`. To find the optimal amount of predictors, we could let the algorithm run for a specific amount, and save the validation error at each stage of the training process. Afterwards, the ensemble is retrained and the process will do an `early stopping` at the stage (amount of trees) that lead to the lowest validation error.
 
+Another technique is called `Stochastic Gradient Boosting`, where each predictor is trained on a random subset (e.g. 25%) of the training instances. This technique trades a higher bias for a lower variance, and it also speeds up training considerably. Lastly, we have `XGBoost` (Extreme Gradient Boosting), which is an optimized implementation of the Gradient Boosting algorithm, that extremely fast, scalable, and portable. 
 
 
 
