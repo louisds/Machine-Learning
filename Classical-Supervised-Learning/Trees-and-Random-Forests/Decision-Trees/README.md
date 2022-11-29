@@ -33,12 +33,10 @@ $$
 where $p_{i,k}$ is the amount of samples from class $k$ divided by the total amount of training samples in the $i^{th}$ node. Another metric that can be used for classification problems is the entropy score, which is defined as:
 
 $$
-H_i = - \sum_{k=1}^{n} p_{i,k} \log{p_{i,k}}
+H_i = - \sum_{k=1}^{n} p_{i,k} \log{(p_{i,k})}
 $$
 
 where the $p_{i,k}$-values equal to zero are not accounted in the sum. 
-
-
 
 ## The Classification and Regression Trees (CART) Algorithm
 
