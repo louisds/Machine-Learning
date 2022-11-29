@@ -18,7 +18,7 @@ https://www.mlstack.cafe/blog/random-forest-interview-questions
 
 An example of a simple decision tree of depth 2 that classifies the Iris dataset is shown below.
 
-<img src="https://github.com/louisds/Machine-Learning/blob/main/Classical-Supervised-Learning/Trees-and-Random-Forests/images/tree.png"  width="200">
+<img src="https://github.com/louisds/Machine-Learning/blob/main/Classical-Supervised-Learning/Trees-and-Random-Forests/images/tree.png"  width="300">
 
 
 
