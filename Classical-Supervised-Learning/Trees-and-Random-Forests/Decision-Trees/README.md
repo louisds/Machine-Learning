@@ -70,7 +70,7 @@ As decision trees are non-parametric models, they are prone to overfitting (i.e.
 
 What would be the approximate depth of a Decision Tree trained (without restrictions) on a training set with 1M instances?
 
-> This is a block quote
+> We know that the deph of a well-balanced binary tree containing $m$ leaves is equal to $\log_2(m)$ rounded up. If the training process is not restricted, the tree will give one leaf per training instance, leading to a deph of $\log_2(10^6) \approx 20$. In some cases the resulting tree might be unbalanced, leading to a slightly higher depth. 
 
 Is the Gini impurity of a node generally lower or greater than its parent's?
 
