@@ -63,8 +63,10 @@ $$
 where $\eta$ is the learning rate. The more accurate the predictor, the higher its weight will be. For random guessing, its weight will be close to zero. If it performs worse than random guessing, its weight will be negative. Next, the AdaBoost algorithm uses the following update rule for the weights of the instances that were misclassified:
 
 $$
-w^{(i)} \leftarrow w^{(i)} \exp \left(\alpha_j\right) \ \ \text{if} \hat{y^{(i)}_j} \neq y^{(i)}
+w^{(i)} \leftarrow w^{(i)} \exp \left(\alpha_j\right) \ \ \text{if} \ \ \hat{y^{(i)}_j} \neq y^{(i)}
 $$
+
+After which all the instance weights are normalized. Finally, a new predictor is trained using the updated weights, and the whole process is repeated. The algorithm stops when the desired number of predictors is reached, or when a perfect predictor is found. To make predictions, AdaBoost simply computes the predictions of all predictors and weighs them using the predictor weights $\apha_j$. The predicted class is the one that gets the majority of weighted votes. 
 
 
 
