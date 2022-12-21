@@ -24,7 +24,7 @@ $$
 H_i = - \sum_{k=1}^{n} p_{i,k} \log{(p_{i,k})}
 $$
 
-where the $p_{i,k}$-values equal to zero are not accounted in the sum. Most of the time, both metrics lead to similar trees and they do not make a big difference (Gini impurity score is a little faster to calculate so this would be a good default). When they differ, Gine score tends to isolate the most frequent class in its own branch of the tree (like the example above), while entropy tends to produce more balanced trees. For regression problems, a popular choice is the MSE-loss. 
+where the $p_{i,k}$-values equal to zero are not accounted in the sum. Most of the time, both metrics lead to similar trees and they do not make a big difference (Gini impurity score is a little faster to calculate so this would be a good default). When they differ, Gini score tends to isolate the most frequent class in its own branch of the tree (like the example above), while entropy tends to produce more balanced trees. For regression problems, a popular choice is the MSE-loss. 
 
 ## The Classification and Regression Trees (CART) Algorithm
 
