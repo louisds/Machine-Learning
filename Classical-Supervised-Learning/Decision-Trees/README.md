@@ -4,7 +4,7 @@
 
 An example of a simple decision tree that classifies flowers from the Iris dataset is shown below.
 
-<img src="https://github.com/louisds/Machine-Learning/blob/main/Classical-Supervised-Learning/Trees-and-Random-Forests/images/tree.png"  width="300">
+<img src="https://github.com/louisds/Machine-Learning/blob/main/Classical-Supervised-Learning/Decision-Trees/images/tree.png"  width="300">
 
 A decision tree is drawn upside down with its root at the top (root node) and has a certain tree depth (equal to two example). It consists of internal nodes (conditions), based on which the tree splits into edges (branches). The end of the branch that doesn’t split anymore (no child nodes) is called the leaf node (decision). Each node tells us how many $samples$ it contains, with $values$ telling us how much of each class. Finally, a node's Gini impurity attribute measures its impurity. A node is pure (gini impurity=0) if all training instances it applies to belong to the same class. A decision tree is a non-parametric model because the number of parameters is not determined prior to training. 
 
