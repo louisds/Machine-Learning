@@ -40,7 +40,7 @@ Other algorithms work by first training the DT without restrictions, and then pr
 
 ## Computational Complexity
 
-Making a prediction requires us to go from the root node to a leaf. As decision trees are generally balanced, traversing the tree requires going to roughly O($log_2(m)$) nodes. As each node only checks one feature, the overall prediction complexity is O($log_2(m)$), independent of the number of features. This means the predictions are very fast.
+Making a prediction requires us to go from the root node to a leaf. As decision trees are generally balanced, traversing the tree requires going to roughly $O(log_2(m))$ nodes. As each node only checks one feature, the overall prediction complexity is $O(log_2(m))$, independent of the number of features. This means the predictions are very fast.
 
 The training process, however, has to compare all features on all samples at each node, since it has to decide where to make the split. This leads to a training complexity of $O(n \times m \log_2(m))$. For small training sets (e.g. less than a few thousand instances), Skicit-Learn can speed up the training by presorting the data, but doing that slows down the training considerably for larger training sets. 
 
