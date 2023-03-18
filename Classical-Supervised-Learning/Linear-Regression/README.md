@@ -8,18 +8,18 @@ $$
 y = f(\textbf{x}) + \varepsilon
 $$
 
-where $f$ is a linear function of $\textbf{x}$ and $\epsilon \sim N(0, \ \sigma^2)$ the error term or irreducible error, which represents the deviation of the actual value of $y$ from the measured value. The goal of linear regression is to calculate the estimated linear function $\hat{f}$, which is used to derive estimates $\hat{y}$:
+where $f$ is a linear function of $\textbf{x}$ and $\varepsilon \sim N(0, \ \sigma^2)$ the `error term` or irreducible error, which represents the deviation of the actual value of $y$ from the measured value. The goal of linear regression is to calculate the estimated linear function $\hat{f}$, which is used to derive estimates $\hat{y}$:
 
 $$
 \hat{y} = \hat{f}(\textbf{x})
 $$
 
-Linear regression is based on a set of assumptions that must be satisfied for the estimates of the coefficients to be valid and reliable. Violations of these assumptions can lead to biased or inefficient estimates, as well as inaccurate predictions and inferences. The four key assumptions of linear regression are:
+Linear regression is based on a set of assumptions that must be satisfied for the estimates of the coefficients to be valid and reliable. Violations of these assumptions can lead to biased or inefficient estimates, as well as inaccurate predictions and inferences. The four key assumptions are:
 
-1. **Linearity:** Linear relationship between the response and the predictors. The linearity assumption can be checked by examining scatterplots of the dependent variable against each independent variable. If the relationship between the variables is not linear, a nonlinear transformation of the data may be necessary to satisfy the linearity assumption.
-2. **Independence:** The errors (and thus the observations) are independent of each other. Violations of the independence assumption can arise in a number of ways. Examples include autocorrelation (the value of the dependent variable at one time point is related to the value at a previous time point), or repeated measures (the same observation is measured multiple times).
-3. **Normality:** The errors are normally distributed, such that $\varepsilon \sim N(0, \ \sigma^2)$. One way to check for normality is to examine the distribution of the residuals. If the distribution of the residuals is not approximately normal, this may indicate a violation of the normality assumption.
-4. **Homoscedasticity:** The variance of the errors is constant across all levels of the independent variables. Violations of the homoscedasticity assumption can lead to biased estimates of the coefficients and incorrect standard errors. One way to check for homoscedasticity is to examine the residuals (the differences between the observed values of the dependent variable and the predicted values) against the predicted values. If the spread of the residuals is not constant across all predicted values, this may indicate a violation of the homoscedasticity assumption.
+1. `**Linearity:**` Linear relationship between the response and the predictors. The linearity assumption can be checked by examining scatterplots of the dependent variable against each independent variable. If the relationship between the variables is not linear, a nonlinear transformation of the data may be necessary to satisfy the linearity assumption.
+2. `**Independence:**` The errors (and thus the observations) are independent of each other. Violations of the independence assumption can arise in a number of ways. Examples include autocorrelation (the value of the dependent variable at one time point is related to the value at a previous time point), or repeated measures (the same observation is measured multiple times).
+3. `**Normality:**` The errors are normally distributed, such that $\varepsilon \sim N(0, \ \sigma^2)$. One way to check for normality is to examine the distribution of the residuals. If the distribution of the residuals is not approximately normal, this may indicate a violation of the normality assumption.
+4. `**Homoscedasticity:**` The variance of the errors is constant across all levels of the independent variables. Violations of the homoscedasticity assumption can lead to biased estimates of the coefficients and incorrect standard errors. One way to check for homoscedasticity is to examine the residuals (the differences between the observed values of the dependent variable and the predicted values) against the predicted values. If the spread of the residuals is not constant across all predicted values, this may indicate a violation of the homoscedasticity assumption.
 
 Linear regression is starting point in the machine learning journey, as it is the foundation for more sophisticated topics like regularization, support vector machines, and neural networks. 
 
@@ -31,7 +31,7 @@ $$
 y = \beta_0 + \beta_1 x + \varepsilon
 $$
 
-where $\beta_0$ is the intercept (the value of $y$ when $x=0$) and $\beta_1$ the slope (the change in $y$ for a one-unit increase in $x$). The goal of simple linear regression is to find estimations $\hat{\beta_0}$ and $\hat{\beta_1}$ as close as possible to the true ones, such that the predicted values $\hat{y}$ are as close as possible to the actual values of $y$. For this purpose, we use a method called least squares regression, where we minimize the sum of the squared residuals:
+where $\beta_0$ is the `intercept` (the value of $y$ when $x=0$) and $\beta_1$ the `slope` (the change in $y$ for a one-unit increase in $x$). The goal of simple linear regression is to find estimations $\hat{\beta_0}$ and $\hat{\beta_1}$ as close as possible to the true ones, such that the predicted values $\hat{y}$ are as close as possible to the actual values of $y$. For this purpose, we use a method called least squares regression, where we minimize the sum of the squared residuals (`SSR`):
 
 $$
 SSR(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \beta_0 + \beta_1 x_i)^2
@@ -49,7 +49,7 @@ $$
 
 where $\bar{x}$ and $\bar{y}$ are the mean of respectively x and y.
 
-In practice, it is much cleaner and easier to work with vector notations (will be useful later). We denote the design matrix $\mathbb{X}$ as:
+In practice, it is much cleaner and easier to work with vector notations (will be useful later). We denote the `design matrix $\mathbb{X}$` as:
 
 $$
 \mathbb{X} = (\mathbb{1}, X) = \begin{pmatrix}
@@ -63,7 +63,7 @@ $$
 Which gives:
 
 $$
-\textbf{Y} = \mathbb{X} \textbf{\beta) + \textbf{\varepsilon)
+\textbf{Y} = \mathbb{X} 
 $$
 
 From a linear algebra point of view, the SSR is defined as:
