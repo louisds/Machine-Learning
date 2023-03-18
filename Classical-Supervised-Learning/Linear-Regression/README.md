@@ -79,7 +79,7 @@ SSR = (\textbf{Y} - \mathbb{X} \boldsymbol{\beta})^T  \ (\textbf{Y} - \mathbb{X}
 $$
 
 $$
-\Rightarrow \frac{\partial SSR}{\partial \boldsymbol{\beta}}
+\Rightarrow \frac{\partial SSR}{\partial \boldsymbol{\beta}} = - 2 \mathbb{X}^T \textbf{Y} + 2 \mathbb{X}^T \mathbb{X} \boldsymbol{\beta}
 $$
 
 
