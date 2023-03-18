@@ -110,7 +110,7 @@ $$
 \mathbb{X} = (\mathbb{1}, \textbf{X}) = \begin{pmatrix}
 1 & x_11 & x_12 & \cdots & x_1p\\
 1 & x_21 & x_22 & \cdots & x_2p\\
-\vdots & \vdots & \cdots & \vdots  & \vdots \\
+\vdots & \vdots & \vdots & \ddots  & \vdots \\
 1 & x_n1 & x_n2 & \cdots & x_np\\
 \end{pmatrix}
 $$
