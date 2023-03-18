@@ -63,7 +63,7 @@ $$
 Which gives:
 
 $$
-\textbf{Y} = \mathbb{X} \mathbf{\beta) + \mathbf{\varepsilon)
+\textbf{Y} = \mathbb{X} \boldsymbol{\beta) + \boldsymbol{\varepsilon)
 $$
 
 From a linear algebra point of view, the SSR is defined as:
