@@ -31,7 +31,15 @@ $$
 y = \beta_0 + \beta_1 x + \varepsilon
 $$
 
-where $\beta_0$ is the intercept (the value of $y$ when $x=0$) and $\beta_1$ the slope (the change in $y$ for a one-unit increase in $x$). The goal of simple linear regression is to find estimations $\hat{\beta_0}$ and $\hat{\beta_1}$ as close as possible to the true ones, such that the predicted values $\hat{y}$ are as close as possible to the actual values of $y$. For this purpose, we use a method called least squares regression, where we minimize the sum of the squared residuals, the latter being the differences between the predicted values of $y$ and the actual values of $y$:
+where $\beta_0$ is the intercept (the value of $y$ when $x=0$) and $\beta_1$ the slope (the change in $y$ for a one-unit increase in $x$). The goal of simple linear regression is to find estimations $\hat{\beta_0}$ and $\hat{\beta_1}$ as close as possible to the true ones, such that the predicted values $\hat{y}$ are as close as possible to the actual values of $y$. For this purpose, we use a method called least squares regression, where we minimize the sum of the squared residuals:
+
+$$
+SSR(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \hat{y}_i)
+$$
+
+where $x_i$ and $n$ is the number of observations
+
+
 
 
 
