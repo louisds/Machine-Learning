@@ -49,10 +49,10 @@ $$
 
 where $\bar{x}$ and $\bar{y}$ are the mean of respectively x and y.
 
-In practice, it is much easier to work with vector notations (will be useful later). We denote the design matrix $\mathbb{X}$ as:
+In practice, it is much cleaner and easier to work with vector notations (will be useful later). We denote the design matrix $\mathbb{X}$ as:
 
 $$
-\mathbb{X} = (\mathbbm{1}, X) = 
+\mathbb{X} = (\mathbb{1}, X) = 
 $$
 
 
