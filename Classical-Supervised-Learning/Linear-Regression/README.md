@@ -14,7 +14,7 @@ Linear regression is based on a set of assumptions that must be satisfied for th
 
 1. **Linearity:** Linear relationship between the response and the predictors
 2. **Independence:** The errors (and thus the observations) are independent of each other
-3. **Normality:** The errors are normally distributed, such that $\epsilon \sim N(0, \smallskip \sigma^2)$
+3. **Normality:** The errors are normally distributed, such that $\epsilon \sim N(0, \sigma^2)$
 4. **Homoscedasticity:** The variance of the errors is constant across all levels of the independent variables
 
 ## Simple Linear Regression
