@@ -25,7 +25,7 @@ Linear regression is starting point in the machine learning journey, as it is th
 
 ## Simple Linear Regression
 
-Given the observed data $\mathcal{D} = \{(x_1, y_1), \cdots, (x_n, y_n) \}$, `simple linear regression` is used to model the relationship between a single dependent variable ($y$) and a single independent variable ($x$):
+Given the observed data $\mathcal{D} = \left{ (x_1, y_1), \cdots, (x_n, y_n) \right}$, `simple linear regression` is used to model the relationship between a single dependent variable ($y$) and a single independent variable ($x$):
 
 $$
 y = \beta_0 + \beta_1 x + \varepsilon
