@@ -34,10 +34,20 @@ $$
 where $\beta_0$ is the intercept (the value of $y$ when $x=0$) and $\beta_1$ the slope (the change in $y$ for a one-unit increase in $x$). The goal of simple linear regression is to find estimations $\hat{\beta_0}$ and $\hat{\beta_1}$ as close as possible to the true ones, such that the predicted values $\hat{y}$ are as close as possible to the actual values of $y$. For this purpose, we use a method called least squares regression, where we minimize the sum of the squared residuals:
 
 $$
-SSR(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \hat{y}_i)
+SSR(\beta_0, \beta_1) = \sum_{i=1}^n (y_i - \hat{y}_i)^2 = \sum_{i=1}^n (y_i - \beta_0 + \beta_1 x_i)^2
 $$
 
-where $x_i$ and $n$ is the number of observations
+where $n$ is the number of observations. We choose $\hat{\beta_0}$ and $\hat{\beta_1}$ such that $SSR(\hat{\beta_0}, \hat{\beta_1})$ is as small as possible. By using some simple calculus, we obtain the following formulas:
+
+$$
+\hat{\beta_0} = \bar{y} - \hat{\beta_1} \bar{x}
+$$
+
+$$
+\hat{\beta_1} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}
+$$
+
+where $\bar{x}$ and $\bar{y}$ are the mean of respectively x and y.
 
 
 
