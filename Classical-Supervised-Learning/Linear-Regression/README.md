@@ -85,7 +85,10 @@ $$
 Which gives:
 
 $$
-\hat{\boldsymbol{\beta}} = (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ \textbf{Y} \\
+\hat{\boldsymbol{\beta}} = (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ \textbf{Y}
+$$
+
+$$
 \hat{\textbf{Y}} = \mathbb{X} \ (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ = \mathbb{H} \ \textbf{Y}
 $$
 
