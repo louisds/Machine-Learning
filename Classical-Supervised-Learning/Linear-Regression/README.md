@@ -55,7 +55,7 @@ $$
 \mathbb{X} = (\mathbb{1}, X) = \begin{pmatrix}
 1 & x_1 \\
 1 & x_2 \\
-\cdots & \cdots \\
+\vdots & \vdots \\
 1 & x_n
 \end{pmatrix}
 $$
