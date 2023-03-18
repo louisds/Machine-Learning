@@ -79,8 +79,16 @@ SSR = (\textbf{Y} - \mathbb{X} \boldsymbol{\beta})^T  \ (\textbf{Y} - \mathbb{X}
 $$
 
 $$
-\Rightarrow \frac{\partial SSR}{\partial \boldsymbol{\beta}} = - 2 \mathbb{X}^T \textbf{Y} + 2 \mathbb{X}^T \mathbb{X} \boldsymbol{\beta}
+\Rightarrow \frac{\partial SSR}{\partial \boldsymbol{\beta}} = - 2 \mathbb{X}^T \textbf{Y} + 2 \mathbb{X}^T \mathbb{X} \boldsymbol{\beta} = 0
 $$
+
+Which gives:
+
+$$
+\hat{\boldsymbol{\beta}} = (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ \textbf{Y} =  \mathbb{H} \ \textbf{Y}
+$$
+
+where $\mathbb{H}$ is called the projection matrix (as \hat{\textbf{Y}} is the projection of \textbf{Y} onto the space spanned by the columns of \mathbb{X}). 
 
 
 
