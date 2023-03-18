@@ -2,13 +2,16 @@
 
 ## Introduction
 
-Linear regression is a parametric statistical modeling technique used to establish the relationship between a continuous dependent variable (response variable $y \in \mathbb{R}$) and one or more independent variables (Predictors $X \in \mathbb{R}^p$):
+Linear regression is a `parametric` statistical modeling technique used to establish the relationship between a continuous dependent variable (response variable $y \in \mathbb{R}$) and one or more independent variables (predictors $x \in \mathbb{R}^p$):
 
 $$
 y = f(**x**) + \varepsilon
 $$
 
-where f is an unknown function and $\epsilon$ the error term or irreducible error, which represents the deviation of the actual value of $y$ from the measured value. Linear regression is starting point in the machine learning journey, as it is the foundation for more sophisticated topics like regularization, support vector machines, and neural networks. 
+where $f$ is a linear function of $\textbf{x}$ and $\epsilon$ the error term or irreducible error, which represents the deviation of the actual value of $y$ from the measured value. The goal of linear regression is to
+
+
+Linear regression is starting point in the machine learning journey, as it is the foundation for more sophisticated topics like regularization, support vector machines, and neural networks. 
 
 Linear regression is based on a set of assumptions that must be satisfied for the estimates of the coefficients to be valid and reliable. Violations of these assumptions can lead to biased or inefficient estimates, as well as inaccurate predictions and inferences. The four key assumptions of linear regression are:
 
@@ -20,6 +23,14 @@ Linear regression is based on a set of assumptions that must be satisfied for th
 
 
 ## Simple Linear Regression
+
+Simple linear regression is used to model the relationship between a single dependent variable ($y$) and a single independent variable ($x$):
+
+$$
+y = \beta_0 + \beta_1 x + \varepsilon
+$$
+
+where $\beta_0$ is the intercept (the value of $y$ when $x=0$) and $\beta_1$ the slope (the change in $y$ for a one-unit increase in $x$). The goal of simple linear regression is to find estimations $\hat{\beta_0}$ and $\hat{\beta_1}$ as close as possible to the true ones, such that the predicted values $\hat{y}$ are as close as possible to the actual values of $y$. For this purpose, we use a method called least squares regression, where we minimize the sum of the squared residuals, the latter being the differences between the predicted values of $y$ and the actual values of $y$:
 
 
 
