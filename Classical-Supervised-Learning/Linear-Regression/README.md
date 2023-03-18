@@ -63,13 +63,19 @@ $$
 Which gives:
 
 $$
-\mathbf{Y} = \mathbb{X} \mathbf{\beta) + \mathbf{\varepsilon)
+\mathbf{Y} = \mathbb{X} \textbf{\beta) + \textbf{\varepsilon)
 $$
 
 From a linear algebra point of view, the SSR is defined as:
 
 $$
-SSR(\mathbf{\beta)) = \lVert \mathbf{Y} - \mathbf{Y} \rVert
+SSR(\textbf{\beta)) = \lVert \textbf{Y} - \textbf{\hat{Y}} \rVert^2 
+$$
+
+The values for \textbf{\hat{\beta}} are calculated as follows:
+
+$$
+SSR = (\textbf{Y} - \mathbb{X} \textbf{\beta))^T  \ (\textbf{Y} - \mathbb{X} \textbf{\beta)) = \textbf{Y}^T \textbf{Y} - 2 \textbf{\beta)^T \mathbb{X}^T \textbf{Y} + \textbf{\beta)^T \mathbb{X}^T \mathbb{X} \textbf{\beta)
 $$
 
 
