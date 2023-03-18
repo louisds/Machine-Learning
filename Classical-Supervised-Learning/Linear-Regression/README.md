@@ -108,10 +108,10 @@ The design matrix $\mathbb{X} \in $\mathbb{R}^{n \ \times \ p+1}$$ is given as:
 
 $$
 \mathbb{X} = (\mathbb{1}, \textbf{X}) = \begin{pmatrix}
-1 & x_11 & x_12 & \cdots & x_1p\\
-1 & x_21 & x_22 & \cdots & x_2p\\
+1 & x_{11} & x_{12} & \cdots & x_{1p}\\
+1 & x_{21} & x_{22} & \cdots & x_{2p}\\
 \vdots & \vdots & \vdots & \ddots  & \vdots \\
-1 & x_n1 & x_n2 & \cdots & x_np\\
+1 & x_{n1} & x_{n2} & \cdots & x_{np}\\
 \end{pmatrix}
 $$
 
