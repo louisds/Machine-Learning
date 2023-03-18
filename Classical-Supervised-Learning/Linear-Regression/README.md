@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Linear regression is a parametric statistical modeling technique used to establish the relationship between a continuous dependent variable (response variable $y \in \mathbb{R}$) and one or more independent variables (Predictors $**x** \in \mathbb{R}^p$):
+Linear regression is a parametric statistical modeling technique used to establish the relationship between a continuous dependent variable (response variable $y \in \mathbb{R}$) and one or more independent variables (Predictors $**X** \in \mathbb{R}^p$):
 
 $$
 y = f(**x**) + \varepsilon
