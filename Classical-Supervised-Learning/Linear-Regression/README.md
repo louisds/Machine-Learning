@@ -52,11 +52,12 @@ where $\bar{x}$ and $\bar{y}$ are the mean of respectively x and y.
 In practice, it is much cleaner and easier to work with vector notations (will be useful later). We denote the design matrix $\mathbb{X}$ as:
 
 $$
-\mathbb{X} = (\mathbb{1}, X) = \begin{bmatrix}
-1 & 2 & 3\\
-1 & 2 & 3\\
-a & b & c
-\end{bmatrix}
+\mathbb{X} = (\mathbb{1}, X) = \begin{pmatrix}
+1 & x_1 \\
+1 & x_2 \\
+\cdots & \cdots \\
+1 & x_n
+\end{pmatrix}
 $$
 
 
