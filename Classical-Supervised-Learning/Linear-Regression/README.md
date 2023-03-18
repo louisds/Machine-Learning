@@ -60,6 +60,19 @@ $$
 \end{pmatrix}
 $$
 
+Which gives:
+
+$$
+\mathbf{Y} = \mathbb{X} \mathbf{\beta) + \mathbf{\varepsilon)
+$$
+
+From a linear algebra point of view, the SSR is defined as:
+
+$$
+SSR(\mathbf{\beta)) = \lVert \mathbf{Y} - \mathbf{Y} \rVert
+$$
+
+
 
 
 
