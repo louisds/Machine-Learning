@@ -104,7 +104,7 @@ $$
 y = \beta_0 + \beta_1 \ x_1 +  \beta_2 \ x_2 + \cdots + \beta_p \ x_p + \varepsilon
 $$
 
-The design matrix $\mathbb{X} \in $\mathbb{R}^{n \ \times \ p+1}$$ is given as:
+The design matrix $\mathbb{X} \in \mathbb{R}^{n \ \times \ p+1}$ is given as:
 
 $$
 \mathbb{X} = (\mathbb{1}, \textbf{X}) = \begin{pmatrix}
