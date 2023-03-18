@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Linear regression is a `parametric` statistical modeling technique used to establish the relationship between a continuous dependent variable (response variable $y \in \mathbb{R}$) and one or more independent variables (predictors $\textbf{x} \in \mathbb{R}^p$):
+Linear regression is a `parametric` statistical modeling technique used to establish the relationship between a continuous dependent variable (`response` variable $y \in \mathbb{R}$) and one or more independent variables (predictors or `covariates` $\textbf{x} \in \mathbb{R}^p$):
 
 $$
 y = f(\textbf{x}) + \varepsilon
@@ -25,7 +25,7 @@ Linear regression is starting point in the machine learning journey, as it is th
 
 ## Simple Linear Regression
 
-Simple linear regression is used to model the relationship between a single dependent variable ($y$) and a single independent variable ($x$):
+Given the observed data $\mathcal{D} = \{(x_1, y_1), \cdots, (x_n, y_n) \}$, `simple linear regression` is used to model the relationship between a single dependent variable ($y$) and a single independent variable ($x$):
 
 $$
 y = \beta_0 + \beta_1 x + \varepsilon
