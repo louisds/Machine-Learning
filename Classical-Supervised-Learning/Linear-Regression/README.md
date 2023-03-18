@@ -88,11 +88,39 @@ $$
 \hat{\boldsymbol{\beta}} = (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ \textbf{Y}
 $$
 
+This minimizer $\hat{\boldsymbol{\beta}}$ is called the `least square estimator` and can be used to make new predictions. We can further write $\hat{\textbf{Y}}$ as follows:
+
 $$
 \hat{\textbf{Y}} = \mathbb{X} \ (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ \textbf{Y} = \mathbb{H} \ \textbf{Y}
 $$
 
 where $\mathbb{H}$ is called the `projection matrix` (as $\hat{\textbf{Y}}$ is the projection of $\textbf{Y}$ onto the space spanned by the columns of $\mathbb{X}$). 
+
+## Multiple Linear Regression
+
+In `multiple linear regression`, the feature vector $\textbf{x} \in \mathbb{R}^p$ is multi-dimensional:
+
+$$
+y = \beta_0 + \beta_1 \ x_1 +  \beta_2 \ x_2 + \cdots + \beta_p \ x_p + \varepsilon
+$$
+
+The design matrix $\mathbb{X} \in $\mathbb{R}^{n \ \times \ p+1}$$ is given as:
+
+$$
+\mathbb{X} = (\mathbb{1}, \textbf{X}) = \begin{pmatrix}
+1 & x_11 & x_12 & \hdots & x_1p\\
+1 & x_21 & x_22 & \hdots & x_2p\\
+\vdots & \vdots & \vdots & \vdots  & \vdots \\
+1 & x_n1 & x_n2 & \hdots & x_np\\
+\end{pmatrix}
+$$
+
+
+
+
+
+
+
 
 
 
