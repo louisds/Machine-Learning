@@ -44,7 +44,7 @@ $$
 $$
 
 $$
-\hat{\beta_1} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^n (x_i - \bar{x})^2}
+\hat{\beta_1} = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sum (x_i - \bar{x})^2}
 $$
 
 where $\bar{x}$ and $\bar{y}$ are the mean of respectively x and y.
