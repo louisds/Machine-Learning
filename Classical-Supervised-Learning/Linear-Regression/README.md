@@ -2,16 +2,17 @@
 
 ## Introduction
 
-Linear regression is a `parametric` statistical modeling technique used to establish the relationship between a continuous dependent variable (response variable $y \in \mathbb{R}$) and one or more independent variables (predictors $x \in \mathbb{R}^p$):
+Linear regression is a `parametric` statistical modeling technique used to establish the relationship between a continuous dependent variable (response variable $y \in \mathbb{R}$) and one or more independent variables (predictors $\textbf{x} \in \mathbb{R}^p$):
 
 $$
-y = f(**x**) + \varepsilon
+y = f(\textbf{x}) + \varepsilon
 $$
 
-where $f$ is a linear function of $\textbf{x}$ and $\epsilon$ the error term or irreducible error, which represents the deviation of the actual value of $y$ from the measured value. The goal of linear regression is to
+where $f$ is a linear function of $\textbf{x}$ and $\epsilon \sim N(0, \ \sigma^2)$ the error term or irreducible error, which represents the deviation of the actual value of $y$ from the measured value. The goal of linear regression is to calculate the estimated linear function $\hat{f}$, which is used to derive estimates $\hat{y}$:
 
-
-Linear regression is starting point in the machine learning journey, as it is the foundation for more sophisticated topics like regularization, support vector machines, and neural networks. 
+$$
+\hat{y} = \hat{f}(\textbf{x})
+$$
 
 Linear regression is based on a set of assumptions that must be satisfied for the estimates of the coefficients to be valid and reliable. Violations of these assumptions can lead to biased or inefficient estimates, as well as inaccurate predictions and inferences. The four key assumptions of linear regression are:
 
@@ -20,7 +21,7 @@ Linear regression is based on a set of assumptions that must be satisfied for th
 3. **Normality:** The errors are normally distributed, such that $\varepsilon \sim N(0, \ \sigma^2)$. One way to check for normality is to examine the distribution of the residuals. If the distribution of the residuals is not approximately normal, this may indicate a violation of the normality assumption.
 4. **Homoscedasticity:** The variance of the errors is constant across all levels of the independent variables. Violations of the homoscedasticity assumption can lead to biased estimates of the coefficients and incorrect standard errors. One way to check for homoscedasticity is to examine the residuals (the differences between the observed values of the dependent variable and the predicted values) against the predicted values. If the spread of the residuals is not constant across all predicted values, this may indicate a violation of the homoscedasticity assumption.
 
-
+Linear regression is starting point in the machine learning journey, as it is the foundation for more sophisticated topics like regularization, support vector machines, and neural networks. 
 
 ## Simple Linear Regression
 
