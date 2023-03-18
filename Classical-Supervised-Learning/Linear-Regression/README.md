@@ -69,7 +69,7 @@ $$
 From a linear algebra point of view, the SSR is defined as:
 
 $$
-SSR(\boldsymbol{\beta}) = \lVert \textbf{Y} - \textbf{\hat{Y}} \rVert^2 
+SSR(\boldsymbol{\beta}) = \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 
 $$
 
 The values for \textbf{\hat{\beta}} are calculated as follows:
@@ -79,7 +79,7 @@ SSR = (\textbf{Y} - \mathbb{X} \boldsymbol{\beta})^T  \ (\textbf{Y} - \mathbb{X}
 $$
 
 $$
-\Rightarrow \frac{\partial f}{\partial x}
+\Rightarrow \frac{\partial SSR}{\partial \boldsymbol{\beta}}
 $$
 
 
