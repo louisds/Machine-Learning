@@ -142,8 +142,10 @@ $$
 The R-Squared value lies between 0 to 1 (can technically be smaller than 0), with a value closer to 1 indicating a better fit between prediction and actual value. It is a good measure to determine how well the model fits the dependent variables. However, it does not take into consideration of the overfitting problem (see next section). If our regression model has many independent variables (the model is too complicated) it may fit very well to the training data but performs badly for our testing data. That is why `Adjusted R Squared` is introduced because it will penalize additional independent variables added to the model and adjust the metric to prevent overfitting issues:
 
 $$
-R^2_{adj} = 1 - \frac{n-1}{n-p-1} \ \frac{\sum \left(y_i - \hat{y}_i \right)^2}{\sum \left(y_i - \bar{y}_i \right)^2}
+R^2_{adj} = 1 - \left( \frac{n-1}{n-p-1} \right) \ \frac{\sum \left(y_i - \hat{y}_i \right)^2}{\sum \left(y_i - \bar{y}_i \right)^2}
 $$
+
+There are two other (less common) evaluation metrics that are used in practice. 
 
 
 ## Overfitting and Bias-Variance Tradeoff
