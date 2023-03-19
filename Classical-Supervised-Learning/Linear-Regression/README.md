@@ -117,7 +117,7 @@ $$
 
 Due to the similarity of the algebraic expression, the same formula for the least square estimator $\hat{\boldsymbol{\beta}}$ as for simple linear regression can be used.
 
-## Model Validation and Overfitting
+## Model Validation
 
 We are most interested in how the model will perform on unseen data, but what if we don't have other data. To solve this issue, we can randomly split the data into a training and a test set (for example a 80-20 split). The training data is going to be used to fit the model, while the test set is meant for model evaluation. The most popular evaluation metric in linear regression is the `mean square error (MSE)`, calculated as:
 
@@ -125,14 +125,30 @@ $$
 MSE = \frac{SSR}{n} =  \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_i)^2
 $$
 
-In an algebraic context, this can be written as:
+The smaller the MSE, the closer the predicted values are to the measured observations. In an algebraic context, this can be written as:
 
 $$
-MSE = \mathbf{E} \left(  \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 \right)
+MSE = \mathbb{E} \left(  \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 \right)
+$$
+
+where $\mathbb{E}$ is the expected value. Unfortunately, we cannot interpret many insights from one single result but it gives us a real number to compare against other model results and help us select the best regression model. 
+
+While the Mean Square Error (MSE) is an absolute measure of the goodness for the fit, the `R-Squared` value is a relative measure of how well the model fits dependent variables. It measures how much variability in the dependent variable (Y) can be explained by the model. It can be calculated as:
+
+$$
+R^2 = 1 - \frac{\sum \left(y_i - \hat{y}_i \right)^2}{\sum \left(y_i - \bar{y}_i \right)^2}
+$$
+
+The R-Squared value lies between 0 to 1 (can technically be smaller than 0), with a value closer to 1 indicating a better fit between prediction and actual value. It is a good measure to determine how well the model fits the dependent variables. However, it does not take into consideration of the overfitting problem (see next section). If our regression model has many independent variables (the model is too complicated) it may fit very well to the training data but performs badly for our testing data. That is why `Adjusted R Squared` is introduced because it will penalize additional independent variables added to the model and adjust the metric to prevent overfitting issues:
+
+$$
+R^2_{adj} = 1 - \frac{n-1}{n-p-1} \ \frac{\sum \left(y_i - \hat{y}_i \right)^2}{\sum \left(y_i - \bar{y}_i \right)^2}
 $$
 
 
-A model is overfitting the data when it has a small training 
+## Overfitting and Bias-Variance Tradeoff
+
+Roughly speaking, a model is `overfitting` the data when it has a small training MSE but a large test MSE. 
 
 
 
