@@ -145,12 +145,31 @@ $$
 R^2_{adj} = 1 - \left( \frac{n-1}{n-p-1} \right) \ \frac{\sum \left(y_i - \hat{y}_i \right)^2}{\sum \left(y_i - \bar{y}_i \right)^2}
 $$
 
-There are two other (less common) evaluation metrics that are used in practice. 
+There are two other (less common) evaluation metrics that are used in practice. The `Root Mean Square Error (RMSE)` is the square root of MSE. In some cases, it is used instead of the MSE for two reasons. Firstly, sometimes the MSE value can be too big to compare easily between models. Secondly, by taking the square root we take the units back to the original units. The `Mean Absolute Error (MAE)` is similar to MSE. However, instead of the sum of square of error in MSE, MAE is taking the sum of the absolute value of error:
+
+$$
+MAE = \frac{1}{N} \sum_i^N \left| y_i - \hat{y}_i \right|
+$$
+
+MSE gives a larger penalization to big prediction errors (by squaring them), while MAE treats all errors the same.
 
 
 ## Overfitting and Bias-Variance Tradeoff
 
-Roughly speaking, a model is `overfitting` the data when it has a small training MSE but a large test MSE. 
+Roughly speaking, a model is `overfitting` the data when it has a small training MSE but a large test MSE. At this point, the model becomes too complex and starts to fit noise or random fluctuations in the training data rather than the underlying pattern. In other words, the model learns the training data too well and becomes too specific to it, losing its generalization power to unseen data. Overfitting can be a result of adding to many predictors (high model complexity).
+
+Two terms related to overfitting are bias and variance. The `Bias` tells us how much (on average) the model's predictions are off from the true values. A model with **high bias** tends to **underfit** the data, which means that it does not capture the underlying patterns in the data well enough. This is often the result of a model being too simple (i.e. too few parameters). As a result, the model may miss important features or relationships between variables, leading to inaccurate predictions. The bias is calculated as the difference between the estimator's expected value and the true value of the variable being estimated.
+
+$$
+\text{Bias}(\hat{f}) = \mathbb{E}(\hat{f}) - f
+$$
+
+`Variance` of a model refers to the amount by which the predicted values of the model vary (on average) for different training data sets. In other words, it measures how sensitive the model is to changes in the training data. A model with **high variance** tends to **overfit** the data, which means that it captures noise or random fluctuations in the data rather than the underlying pattern. It is calculated as follows:
+
+$$
+\text{Var}(\hat{f}) = \mathbb{E}\left[\left(\hat{f} - \mathbb{E}(\hat{f})\right)^2\right]
+$$
+
 
 
 
