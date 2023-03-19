@@ -158,10 +158,10 @@ MSE gives a larger penalization to big prediction errors (by squaring them), whi
 
 Roughly speaking, a model is `overfitting` the data when it has a small training MSE but a large test MSE. At this point, the model becomes too complex and starts to fit noise or random fluctuations in the training data rather than the underlying pattern. In other words, the model learns the training data too well and becomes too specific to it, losing its generalization power to unseen data. Overfitting can be a result of adding to many predictors (high model complexity).
 
-Two terms related to overfitting are bias and variance. The `Bias` tells us how much (on average) the model's predictions are off from the true values. A model with **high bias** tends to **underfit** the data, which means that it does not capture the underlying patterns in the data well enough. This is often the result of a model being too simple (i.e. too few parameters). As a result, the model may miss important features or relationships between variables, leading to inaccurate predictions. The bias is calculated as the difference between the estimator's expected value and the true value of the variable being estimated.
+Two terms related to overfitting are bias and variance. The `Bias` tells us how much (on average) the model's predictions are off from the true values. A model with **high bias** tends to **underfit** the data, which means that it does not capture the underlying patterns in the data well enough. This is often the result of a model being too simple (i.e. too few parameters). As a result, the model may miss important features or relationships between variables, leading to inaccurate predictions. The bias is calculated as the difference between the estimator's expected value and the true value of the variable being estimated. In most cases, the squared bias is used.
 
 $$
-\text{Bias}(\hat{f}) = \mathbb{E}(\hat{f}) - f
+\text{Bias}^2(\hat{f}) = \left( \mathbb{E}(\hat{f}) - f \right)^2
 $$
 
 `Variance` of a model refers to the amount by which the predicted values of the model vary (on average) for different training data sets. In other words, it measures how sensitive the model is to changes in the training data. A model with **high variance** tends to **overfit** the data, which means that it captures noise or random fluctuations in the data rather than the underlying pattern. It is calculated as follows:
