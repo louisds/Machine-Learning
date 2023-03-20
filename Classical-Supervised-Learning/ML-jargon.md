@@ -68,7 +68,7 @@ We cannot interpret many insights from one single result but it gives us a real 
 
 ## Root Mean Square Error (RMSE)
 
-The Root Mean Square Error(RMSE) is the square root of MSE. In some cases, it is used more commonly than MSE for two reasons. Firstly, sometimes the MSE value can be too big to compare easily between models. Secondly, by taking the square root we take the units back to the original units.
+The Root Mean Square Error (RMSE) is the square root of MSE. In some cases, it is used more commonly than MSE for two reasons. Firstly, sometimes the MSE value can be too big to compare easily between models. Secondly, by taking the square root we take the units back to the original units.
 
 ## Mean Absolute Error (MAE)
 
