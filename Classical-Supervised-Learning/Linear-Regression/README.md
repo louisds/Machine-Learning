@@ -154,7 +154,7 @@ $$
 MSE gives a larger penalization to big prediction errors (by squaring them), while MAE treats all errors the same.
 
 
-## Overfitting and Bias-Variance Tradeoff
+## Overfitting
 
 One would think that adding more and more predictors will make the model better and better. Unfortunately, this is not the case, because of the danger of overfitting. Roughly speaking, a model is `overfitting` the data when it has a small training MSE but a large test MSE. At this point, the model becomes too complex and starts to fit noise or random fluctuations in the training data rather than the underlying pattern. In other words, the model learns the training data too well and becomes too specific to it, losing its generalization power to unseen data. Overfitting can be a result of adding to many predictors (high model complexity).
 
@@ -164,19 +164,65 @@ $$
 \text{Bias}^2(\hat{f}) = \left( \mathbb{E}(\hat{f}) - f \right)^2
 $$
 
-`Variance` of a model refers to the amount by which the predicted values of the model vary (on average) for different training data sets. In other words, it measures how sensitive the model is to changes in the training data. A model with **high variance** tends to **overfit** the data, which means that it captures noise or random fluctuations in the data rather than the underlying pattern. It is calculated as follows:
+Note that the bias of a model can not be calculated exactly, as we don't know the true function (or values). `Variance` of a model refers to the amount by which the predicted values of the model vary (on average) for different training data sets. In other words, it measures how sensitive the model is to changes in the training data. A model with **high variance** tends to **overfit** the data, which means that it captures noise or random fluctuations in the data rather than the underlying pattern. It is calculated as follows:
 
 $$
 \text{Var}(\hat{f}) = \mathbb{E}\left[\left(\hat{f} - \mathbb{E}(\hat{f})\right)^2\right]
 $$
 
-Bias and variance are two sides of the same coin. As squared bias decreases, the variance goes up (and vice versa). This is called the `Bias-Variance Tradeoff`. This can be shown mathematically by decomposing the prediction risk:
+Bias and variance are two sides of the same coin. As squared bias decreases, the variance goes up (and vice versa). This is called the `Bias-Variance Tradeoff` and will be explained in the next section. 
+
+## Bias-Variance Tradeoff
+
+Suppose that we obtain some $\hat{f} = \hat{y}$, how well does it estimate $f$? We define the `Prediction Error (or Risk)` using $\hat{f} = \hat{Y}$ as a prediction for $Y$ as:
 
 $$
-\text{Risk} = \mathbb{E}(f-\hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f} + \mathbb{E}\hat{f} - \hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f})^2 + \mathbb{E}(\hat{f} - \mathbb{E}\hat{f})^2 - 2  \mathbb{E}(f - \mathbb{E}\hat{f})(\hat{f} - \mathbb{E}\hat{f}) = \text{Bias}^2(\hat{f}) + \text{Var}(\hat{f})
+R(\hat{f}) = \mathbb{E}(Y - \hat{f})^2 =   \mathbb{E}(f-\hat{f})^2{\mathbb{E}(f-\hat{f})^2}_{\text{Reducible Error}} +  \mathbb{E}(Y - f})^2 
 $$
 
-As the third term equals zero. 
+The prediction error is also known as the `Total Error` or the generalization error. 
+ 
+
+This can be shown mathematically by decomposing the `Prediction Error or Risk`, also known as the `Total Error` or the `Generalization Error`. The risk of using $\hat{f} = \hat{Y}$ as a prediction for $Y$ is given by:
+
+
+
+
+
+$$
+\text{Risk} = \mathbb{E}(f-\hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f} + \mathbb{E}\hat{f} - \hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f})^2 + \mathbb{E}(\hat{f} - \mathbb{E}\hat{f})^2 - 2  \mathbb{E}(f - \mathbb{E}\hat{f})(\hat{f} - \mathbb{E}\hat{f}) 
+$$
+$$
+\Rightarrow \text{Risk} = \text{Bias}^2(\hat{f}) + \text{Var}(\hat{f})
+$$
+
+As the third term equals zero. This equation is also known as the `Bias-Variance Decomposition`. We can further rewrite the Bias-Variance decomposition in terms of the MSE. Remember, the response variable `y` can be defined as a true function `f` plus noise $\varepsilon$. This can be written as follows:
+
+$$y = f + \varepsilon$$
+
+with:
+
+$$\mathbb{E}(\varepsilon) = 0, \ \ Var(\varepsilon) = \sigma^2 \Rightarrow \mathbb{E}(\varepsilon^2) = \sigma^2$$
+
+In regression, we estimate this response variable:
+
+$$\hat{y} = \hat{f}$$
+
+Rewriting the Bias-Variance decomposition:
+
+$$\Leftrightarrow \mathbb{E}(y - \varepsilon-\hat{f})^2 = Bias(\hat{f})^2 + Var(\hat{f})$$
+
+$$\Leftrightarrow \mathbb{E} [(y-\hat{f})-\varepsilon]^2 = Bias(\hat{f})^2 + Var(\hat{f})$$
+
+$$\Leftrightarrow \mathbb{E} (y-\hat{f})^2 - \mathbb{E}[2\varepsilon(y-\hat{f})] + \mathbb{E}(\varepsilon^2) = Bias(\hat{f})^2 + Var(\hat{f}) $$
+
+$$\Leftrightarrow \mathbb{E} (y-\hat{f})^2 - 2\sigma^2  + \sigma^2 = Bias(\hat{f})^2 + Var(\hat{f}) $$
+
+Which can be written as:
+
+$$\mathbb{E} (y-\hat{f})^2 = Bias(\hat{f})^2 + Var(\hat{f}) + \sigma^2$$
+
+The left hand term is the MSE of the response variable and the predicted value. This makes sense, as the total error is the MSE plus the 
 
 
 
