@@ -214,7 +214,26 @@ $$
 
 A higher $\lambda$ will mean more penalization, with $\lambda = \infty$ leading to $\hat{\boldsymbol{\beta}} = 0$ or zero variance. A lower $\lambda$ will mean less penalization, with $\lambda = 0$ being the OLS solution (if this exists). Another advantage of regularization is that it allows for situations where $p > n$ (more predictors than data points), which is not possible in case of the OLS solution as the matrix $\mathbb{X}^T \mathbb{X}$ is not invertible in this case. 
 
-So how do we choose the optimal $\lambda$? As shown in the sketch, we want to minimize 
+So how do we choose the optimal $\lambda$? As shown in the sketch, we want to minimize the total error or risk $R$, which is the same as minimizing the mean squared error $\text{MSE}(f, \hat{f})$, as this is the only reducible part. As we don't know $f$, the MSE cannot be calculated exactly and has to be estimated. A first candidate that probably comes in mind is the training MSE, however, this estimator is biased as we use the same data to fit the model. A better option is by performing a `Leave-one-out Cross-Validation`. The LOOCV process for a specific $\lambda$ goes as follows:
+
+1. Leave out ($x_i, y_i$)
+2. Find $\hat{\boldsymbol{\beta}}$ for this data
+3. Predict $\hat{y}_{(-i)} = \hat{\boldsymbol{\beta}} x_i$
+4. Repeat for each i and calculate:
+
+$$
+\hat{MSE}(\lambda) =  \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{-i})^2
+$$
+
+Choose the $\lambda$ that leads to the lowest $\hat{MSE}$. An important property of Ridge Regression is that the weights $\beta$ will never be exactly equal to zero, no matter how big $\lambda$ is. In other words, Ridge regression does not take advantage of sparsity and will never drop unimportant covariates, as can be seen in the ridge regularization paths below. In some cases this is not wanted and we want to keep only a select number of features. Lasso regression solves this issue by capturing `sparsity` while still keeping `convexity`. 
+
+## Lasso Regression (L1 Regularization)
+
+In case of `Lasso Regression`, the 1-norm is used in the penalization term instead of the 2-norm:
+
+$$
+\hat{\boldsymbol{\beta}} = \text{Argmin}_{\boldsymbol{\beta}} \left( \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 + \lambda  \lVert \boldsymbol{\beta} \rVert^2_1 \right)
+$$
 
 
 
