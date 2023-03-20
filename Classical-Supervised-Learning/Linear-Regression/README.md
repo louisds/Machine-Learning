@@ -1,6 +1,8 @@
-# Linear Regression
+# Linear Regression and Regularization
 
-## Introduction
+In this chapter, I will explain the most basic and fundamental Machine Learning (ML) algorithm: Linear Regression. This algorithm will be used as a backbone to explain another crucial concept: Regularization.
+
+## Introduction to Linear Regression
 
 Linear regression is a `parametric` statistical modeling technique used to establish the relationship between a continuous dependent variable (`response` variable $Y \in \mathbb{R}$) and one or more independent variables (predictors or `covariates` $\textbf{X} \in \mathbb{R}^p$):
 
@@ -94,7 +96,7 @@ $$
 \hat{\boldsymbol{\beta}} = (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ \textbf{Y}
 $$
 
-This minimizer $\hat{\boldsymbol{\beta}}$ is called the `Least Square Estimator` and can be used to make new predictions. We can further write $\hat{\textbf{Y}}$ as follows:
+This minimizer $\hat{\boldsymbol{\beta}}$ is called the `Ordinary Least Square (OLS) Estimator` and can be used to make new predictions. We can further write $\hat{\textbf{Y}}$ as follows:
 
 $$
 \hat{\textbf{Y}} = \mathbb{X} \ (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ \textbf{Y} = \mathbb{H} \ \textbf{Y}
@@ -194,7 +196,13 @@ This expression is known as the `Bias-Variance Decomposition`. In a perfect worl
 
 <p align="center"> <img src="https://github.com/louisds/Machine-Learning/blob/main/Classical-Supervised-Learning/images/BV-Tradeoff.png"  width="500"> </p>
 
-To select a model that appropriately balances the tradeoff between bias and variance, and thus minimizes the reducible error, we need to select a model of the appropriate complexity for the data. 
+To select a model that appropriately balances the tradeoff between bias and variance, and thus minimizes the reducible error, we need to select a model of the appropriate complexity for the data. OLS estimators are unbiased estimators which lead to the lowest SSR, but is a model with the lowest SSR always the best model? The answer to this question is no, sometimes we need to introduce some Bias to make the model more general and prevent overfitting. In the sketch, this is shown by the OLS estimator being more rightly located than the sweet spot (i.e. lowest total error). To solve this issue, we want to "add bias" to lower the variance and come closer to the point of minimal risk. This concept is called `Regularization`. Regularization adds a penalty to the loss function to prevent the weights $\beta$ from becoming too large (i.e. making them smaller by penalizing large weights). In this way, the variance will decrease, which means the model will be more generalizible and less capable of fitting random noise. There are two popular regularization methods in Linear Regression, Ridge Regression and Lasso Regression. Both concepts will be explained in the next section. 
+
+## Ridge Regression (L2 Regularization)
+
+Recall that the OLS estimator minimizes the SSR. In case of
+
+
 
 
 
