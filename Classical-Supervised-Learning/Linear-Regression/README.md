@@ -180,50 +180,22 @@ $$
 R(\hat{f}) = \mathbb{E}(Y - \hat{f})^2 = \underbrace{\mathbb{E}(f-\hat{f})^2}_{\text{Reducible Error}} +  \underbrace{\mathbb{E}(Y - f)^2}_{\text{Irreducible Error } \ \sigma^2}
 $$
 
-The prediction error, also known as the `Total Error` or the generalization error, has been decomposed into two errors, the reducible and the irreducible error. The `Irreducible Error` (Bayes Error) is essentially noise that we do not want to learn (recall $Var(\varepsilon) = \sigma^2$). The `Reducible Error` is the error that we have some control over. It is often called the mean squared error of estimating $f$ using $\hat{f}$:
-
-
-
-This can be shown mathematically by decomposing the `Prediction Error or Risk`, also known as the `Total Error` or the `Generalization Error`. The risk of using $\hat{f} = \hat{Y}$ as a prediction for $Y$ is given by:
-
-
-
-
+The prediction error, also known as the `Total Error` or the generalization error, has been decomposed into two errors, the reducible and the irreducible error. The `Irreducible Error` (Bayes Error) is essentially noise that we do not want to learn (recall $Var(\varepsilon) = \sigma^2$). The `Reducible Error` is the error that we have some control over. It is often called the mean squared error of estimating $f$ using $\hat{f}$, which can be further decomposed into Squared Bias and Variance:
 
 $$
-\text{Risk} = \mathbb{E}(f-\hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f} + \mathbb{E}\hat{f} - \hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f})^2 + \mathbb{E}(\hat{f} - \mathbb{E}\hat{f})^2 - 2  \mathbb{E}(f - \mathbb{E}\hat{f})(\hat{f} - \mathbb{E}\hat{f}) 
+\text{MSE}(f, \hat{f}) = \mathbb{E}(f-\hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f} + \mathbb{E}\hat{f} - \hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f})^2 + \mathbb{E}(\hat{f} - \mathbb{E}\hat{f})^2 - 2  \mathbb{E}(f - \mathbb{E}\hat{f})(\hat{f} - \mathbb{E}\hat{f}) 
 $$
 $$
 \Rightarrow \text{Risk} = \text{Bias}^2(\hat{f}) + \text{Var}(\hat{f})
 $$
 
-As the third term equals zero. This equation is also known as the `Bias-Variance Decomposition`. We can further rewrite the Bias-Variance decomposition in terms of the MSE. Remember, the response variable `y` can be defined as a true function `f` plus noise $\varepsilon$. This can be written as follows:
+This expression is known as the `Bias-Variance Decomposition`. In a perfect world, we would be able to find some $\hat{f}$ that is unbiased (i.e. bias equals zero) and also has a low variance. However, in practice, this isn’t always possible. It turns out that there is a `Bias-Variance Tradeoff`. That is, often, the less bias in our estimation, the higher the variance (and vice versa). Complex models tend to be unbiased, but highly variable. Simple models are often extremely biased, but have low variance. This relation is shown in the graphic below.
 
-$$y = f + \varepsilon$$
 
-with:
 
-$$\mathbb{E}(\varepsilon) = 0, \ \ Var(\varepsilon) = \sigma^2 \Rightarrow \mathbb{E}(\varepsilon^2) = \sigma^2$$
+So for us, to select a model that appropriately balances the tradeoff between bias and variance, and thus minimizes the reducible error, we need to select a model of the appropriate complexity for the data. 
 
-In regression, we estimate this response variable:
 
-$$\hat{y} = \hat{f}$$
-
-Rewriting the Bias-Variance decomposition:
-
-$$\Leftrightarrow \mathbb{E}(y - \varepsilon-\hat{f})^2 = Bias(\hat{f})^2 + Var(\hat{f})$$
-
-$$\Leftrightarrow \mathbb{E} [(y-\hat{f})-\varepsilon]^2 = Bias(\hat{f})^2 + Var(\hat{f})$$
-
-$$\Leftrightarrow \mathbb{E} (y-\hat{f})^2 - \mathbb{E}[2\varepsilon(y-\hat{f})] + \mathbb{E}(\varepsilon^2) = Bias(\hat{f})^2 + Var(\hat{f}) $$
-
-$$\Leftrightarrow \mathbb{E} (y-\hat{f})^2 - 2\sigma^2  + \sigma^2 = Bias(\hat{f})^2 + Var(\hat{f}) $$
-
-Which can be written as:
-
-$$\mathbb{E} (y-\hat{f})^2 = Bias(\hat{f})^2 + Var(\hat{f}) + \sigma^2$$
-
-The left hand term is the MSE of the response variable and the predicted value. This makes sense, as the total error is the MSE plus the 
 
 
 
