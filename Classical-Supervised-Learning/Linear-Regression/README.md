@@ -2,19 +2,25 @@
 
 ## Introduction
 
-Linear regression is a `parametric` statistical modeling technique used to establish the relationship between a continuous dependent variable (`response` variable $y \in \mathbb{R}$) and one or more independent variables (predictors or `covariates` $\textbf{x} \in \mathbb{R}^p$):
+Linear regression is a `parametric` statistical modeling technique used to establish the relationship between a continuous dependent variable (`response` variable $Y \in \mathbb{R}$) and one or more independent variables (predictors or `covariates` $\textbf{X} \in \mathbb{R}^p$):
 
 $$
-y = f(\textbf{x}) + \varepsilon
+Y = f(\textbf{X}) + \varepsilon
 $$
 
-where $f$ is a linear function of $\textbf{x}$ and $\varepsilon \sim N(0, \ \sigma^2)$ the `error term` or irreducible error, which represents the deviation of the actual value of $y$ from the measured value. The goal of linear regression is to calculate the estimated linear function $\hat{f}$, which is used to derive estimates $\hat{y}$:
+where $f$ is a fixed, unknown function of $\textbf{X}$ and $\varepsilon \sim N(0, \ \sigma^2)$ the `error term` or irreducible error, which represents the deviation (noise) of the actual value of $y$ from the measured value. The best predictor is the regression function:
 
 $$
-\hat{y} = \hat{f}(\textbf{x})
+f(\textbf{x}) = \mathbb{E} \left(Y | \textbf{X} = \textbf{x} \right)
 $$
 
-Linear regression is based on a set of assumptions that must be satisfied for the estimates of the coefficients to be valid and reliable. Violations of these assumptions can lead to biased or inefficient estimates, as well as inaccurate predictions and inferences. The four key assumptions are:
+However, the true regression function $f(\textbf{X})$ is not known and hence we need to estimate it. In a linear regression problem, we try to find the `best linear predictor`:
+
+$$
+f(\textbf{x}) = \beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p
+$$
+
+The goal of linear regression is to calculate (or estimate) the coefficients $\beta$, also known as the `weights`. The process is based on a set of assumptions that must be satisfied for the estimates of the coefficients to be valid and reliable. Violations of these assumptions can lead to biased or inefficient estimates, as well as inaccurate predictions and inferences. The four key assumptions are:
 
 1. `Linearity`: Linear relationship between the response and the predictors. The linearity assumption can be checked by examining scatterplots of the dependent variable against each independent variable. If the relationship between the variables is not linear, a nonlinear transformation of the data may be necessary to satisfy the linearity assumption.
 2. `Independence`: The errors (and thus the observations) are independent of each other. Violations of the independence assumption can arise in a number of ways. Examples include autocorrelation (the value of the dependent variable at one time point is related to the value at a previous time point), or repeated measures (the same observation is measured multiple times).
