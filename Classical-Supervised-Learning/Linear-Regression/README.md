@@ -203,9 +203,14 @@ To select a model that appropriately balances the tradeoff between bias and vari
 Recall that the OLS estimator minimizes the SSR or training error (i.e. loss function). In case of `Ridge Regression`, the training error is penalized by adding an extra term:
 
 $$
-\hat{\boldsymbol{\beta}} = \text{Argmin}_{\boldsymbol{\beta}} \left( \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 + \lambda  \lVert \boldsymbol{\beta} \rVert^2 \right)
+\hat{\boldsymbol{\beta}} = \text{Argmin}_{\boldsymbol{\beta}} \left( \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 + \lambda  \lVert \boldsymbol{\beta} \rVert^2_2 \right)
 $$
 
+where $\lVert \rVert_2$ is the 2-norm, which is why this concept is also called `L2-Regularization`. The solution is:
+
+$$
+\hat{\boldsymbol{\beta}} = (\mathbb{X}^T \mathbb{X} + \lambda * \mathbb{I})^{-1} \ \mathbb{X}^T \ \textbf{Y}
+$$
 
 
 
