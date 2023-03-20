@@ -156,7 +156,7 @@ MSE gives a larger penalization to big prediction errors (by squaring them), whi
 
 ## Overfitting and Bias-Variance Tradeoff
 
-Roughly speaking, a model is `overfitting` the data when it has a small training MSE but a large test MSE. At this point, the model becomes too complex and starts to fit noise or random fluctuations in the training data rather than the underlying pattern. In other words, the model learns the training data too well and becomes too specific to it, losing its generalization power to unseen data. Overfitting can be a result of adding to many predictors (high model complexity).
+One would think that adding more and more predictors will make the model better and better. Unfortunately, this is not the case, because of the danger of overfitting. Roughly speaking, a model is `overfitting` the data when it has a small training MSE but a large test MSE. At this point, the model becomes too complex and starts to fit noise or random fluctuations in the training data rather than the underlying pattern. In other words, the model learns the training data too well and becomes too specific to it, losing its generalization power to unseen data. Overfitting can be a result of adding to many predictors (high model complexity).
 
 Two terms related to overfitting are bias and variance. The `Bias` tells us how much (on average) the model's predictions are off from the true values. A model with **high bias** tends to **underfit** the data, which means that it does not capture the underlying patterns in the data well enough. This is often the result of a model being too simple (i.e. too few parameters). As a result, the model may miss important features or relationships between variables, leading to inaccurate predictions. The bias is calculated as the difference between the estimator's expected value and the true value of the variable being estimated. In most cases, the squared bias is used.
 
@@ -170,6 +170,13 @@ $$
 \text{Var}(\hat{f}) = \mathbb{E}\left[\left(\hat{f} - \mathbb{E}(\hat{f})\right)^2\right]
 $$
 
+Bias and variance are two sides of the same coin. As squared bias decreases, the variance goes up (and vice versa). This is called the `Bias-Variance Tradeoff`. This can be shown mathematically by decomposing the prediction risk:
+
+$$
+\text{Risk} = \mathbb{E}(f-\hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f} + \mathbb{E}\hat{f} - \hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f})^2 + \mathbb{E}(\hat{f} - \mathbb{E}\hat{f})^2 - 2  \mathbb{E}(f - \mathbb{E}\hat{f})(\hat{f} - \mathbb{E}\hat{f}) = \text{Bias}^2(\hat{f}) + \text{Var}(\hat{f})
+$$
+
+As the third term equals zero. 
 
 
 
