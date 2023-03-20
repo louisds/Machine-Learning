@@ -185,6 +185,7 @@ The prediction error, also known as the `Total Error` or the generalization erro
 $$
 \text{MSE}(f, \hat{f}) = \mathbb{E}(f-\hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f} + \mathbb{E}\hat{f} - \hat{f})^2 = \mathbb{E}(f - \mathbb{E}\hat{f})^2 + \mathbb{E}(\hat{f} - \mathbb{E}\hat{f})^2 - 2  \mathbb{E}(f - \mathbb{E}\hat{f})(\hat{f} - \mathbb{E}\hat{f}) 
 $$
+
 $$
 \Rightarrow \text{Risk} = \text{Bias}^2(\hat{f}) + \text{Var}(\hat{f})
 $$
