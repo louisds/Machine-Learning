@@ -170,7 +170,7 @@ $$
 \text{Var}(\hat{f}) = \mathbb{E}\left[\left(\hat{f} - \mathbb{E}(\hat{f})\right)^2\right]
 $$
 
-Bias and variance are two sides of the same coin. As squared bias decreases, the variance goes up (and vice versa). This is called the `Bias-Variance Tradeoff` and will be explained in the next section. 
+Bias and variance are two sides of the same coin. As squared bias decreases, the variance goes up (and vice versa). This is called the Bias-Variance Tradeoff and will be explained in the next section. 
 
 ## Bias-Variance Tradeoff
 
@@ -193,7 +193,7 @@ This expression is known as the `Bias-Variance Decomposition`. In a perfect worl
 
 
 
-So for us, to select a model that appropriately balances the tradeoff between bias and variance, and thus minimizes the reducible error, we need to select a model of the appropriate complexity for the data. 
+To select a model that appropriately balances the tradeoff between bias and variance, and thus minimizes the reducible error, we need to select a model of the appropriate complexity for the data. 
 
 
 
