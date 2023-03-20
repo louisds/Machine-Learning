@@ -206,13 +206,15 @@ $$
 \hat{\boldsymbol{\beta}} = \text{Argmin}_{\boldsymbol{\beta}} \left( \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 + \lambda  \lVert \boldsymbol{\beta} \rVert^2_2 \right)
 $$
 
-where $\lVert \rVert_2$ is the 2-norm, which is why this concept is also called `L2-Regularization`. The solution is:
+where $\lVert \cdot \rVert_2$ is the 2-norm, which is why this concept is also called `L2-Regularization`. The tuning parameter $\lambda$ controls the Bias-Variance tradeoff and is called the `Penalization (or Regularization) Term`. The solution is:
 
 $$
-\hat{\boldsymbol{\beta}} = (\mathbb{X}^T \mathbb{X} + \lambda * \mathbb{I})^{-1} \ \mathbb{X}^T \ \textbf{Y}
+\hat{\boldsymbol{\beta}} = (\mathbb{X}^T \mathbb{X} + \lambda \mathbb{I})^{-1} \ \mathbb{X}^T \ \textbf{Y}
 $$
 
+A higher $\lambda$ will mean more penalization, with $\lambda = \infty$ leading to $\hat{\boldsymbol{\beta}} = 0$ or zero variance. A lower $\lambda$ will mean less penalization, with $\lambda = 0$ being the OLS solution (if this exists). Another advantage of regularization is that it allows for situations where $p > n$ (more predictors than data points), which is not possible in case of the OLS solution as the matrix $\mathbb{X}^T \mathbb{X}$ is not invertible in this case. 
 
+So how do we choose the optimal $\lambda$? As shown in the sketch, we want to minimize 
 
 
 
