@@ -235,11 +235,11 @@ $$
 \hat{\boldsymbol{\beta}} = \text{Argmin}_{\boldsymbol{\beta}} \left( \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 + \lambda  \lVert \boldsymbol{\beta} \rVert^2_1 \right)
 $$
 
-Unfortunately, this optimization problem does not have a closed form solution. Instead, we will have to minimize the loss through coordinate descent, also known as `Iterative Soft Thresholding`. The iterative procedure starts with setting $\hat{\boldsymbol{\beta}} = (0, \ 0, \cdots, 0)$ and repeating the following until convergence:
+Unfortunately, this optimization problem does not have a closed form solution. Instead, we will have to minimize the loss through coordinate descent, also known as `Iterative Soft Thresholding`, which will not be discussed here. After obtaining the lasso estimator $\hat{\boldsymbol{\beta}}(\lambda)$, we can define the set of non-zero coefficients for a particular value of $\lambda$:
 
-- For $j = 1, \cdots, p$:
-1. test
-2. test
+$$
+\hat{S}(\lambda) = \set{j \ : \ \hat{\boldsymbol{\beta}}_j(\lambda) \neq 0}
+$$
 
 
 
