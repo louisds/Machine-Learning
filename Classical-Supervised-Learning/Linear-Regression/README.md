@@ -203,7 +203,7 @@ To select a model that appropriately balances the tradeoff between bias and vari
 Recall that the OLS estimator minimizes the SSR or training error (i.e. loss function). In case of `Ridge Regression`, the training error is penalized by adding an extra term:
 
 $$
-\hat{\boldsymbol{\beta}} = \text{Argmin_{\boldsymbol{\beta}}} \left( \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 \right)
+\hat{\boldsymbol{\beta}} = \text{Argmin}_{\boldsymbol{\beta}} \left( \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 \right)
 $$
 
 
