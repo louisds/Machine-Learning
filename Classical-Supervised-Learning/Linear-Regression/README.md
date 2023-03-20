@@ -177,7 +177,7 @@ Bias and variance are two sides of the same coin. As squared bias decreases, the
 Suppose that we obtain some $\hat{f} = \hat{y}$, how well does it estimate $f$? We define the `Prediction Error (or Risk)` using $\hat{f} = \hat{Y}$ as a prediction for $Y$ as:
 
 $$
-R(\hat{f}) = \mathbb{E}(Y - \hat{f})^2 =   \mathbb{E}(f-\hat{f})^2{\mathbb{E}(f-\hat{f})^2}_{\text{Reducible Error}} +  \mathbb{E}(Y - f})^2 
+R(\hat{f}) = \mathbb{E}(Y - \hat{f})^2 = \underbrace{\mathbb{E}(f-\hat{f})^2}_{\text{Reducible Error}} +  \underbrace{\mathbb{E}(Y - f)^2}_{\text{Irreducible Error} \sigma^2}
 $$
 
 The prediction error is also known as the `Total Error` or the generalization error. 
