@@ -192,7 +192,7 @@ $$
 
 This expression is known as the `Bias-Variance Decomposition`. In a perfect world, we would be able to find some $\hat{f}$ that is unbiased (i.e. bias equals zero) and also has a low variance. However, in practice, this isn’t always possible. It turns out that there is a `Bias-Variance Tradeoff`. That is, often, the less bias in our estimation, the higher the variance (and vice versa). Complex models tend to be unbiased, but highly variable. Simple models are often extremely biased, but have low variance. This relation is shown in the sketch below.
 
-<img src="https://github.com/louisds/Machine-Learning/blob/main/Classical-Supervised-Learning/images/BV-Tradeoff.png"  width="200">
+<img src="https://github.com/louisds/Machine-Learning/blob/main/Classical-Supervised-Learning/images/BV-Tradeoff.png"  width="500" style="display: block; margin: 0 auto">
 
 To select a model that appropriately balances the tradeoff between bias and variance, and thus minimizes the reducible error, we need to select a model of the appropriate complexity for the data. 
 
