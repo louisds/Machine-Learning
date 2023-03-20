@@ -177,11 +177,12 @@ Bias and variance are two sides of the same coin. As squared bias decreases, the
 Suppose that we obtain some $\hat{f} = \hat{y}$, how well does it estimate $f$? We define the `Prediction Error (or Risk)` using $\hat{f} = \hat{Y}$ as a prediction for $Y$ as:
 
 $$
-R(\hat{f}) = \mathbb{E}(Y - \hat{f})^2 = \underbrace{\mathbb{E}(f-\hat{f})^2}_{\text{Reducible Error}} +  \underbrace{\mathbb{E}(Y - f)^2}_{\text{Irreducible Error} \sigma^2}
+R(\hat{f}) = \mathbb{E}(Y - \hat{f})^2 = \underbrace{\mathbb{E}(f-\hat{f})^2}_{\text{Reducible Error}} +  \underbrace{\mathbb{E}(Y - f)^2}_{\text{Irreducible Error } \ \sigma^2}
 $$
 
-The prediction error is also known as the `Total Error` or the generalization error. 
- 
+The prediction error, also known as the `Total Error` or the generalization error, has been decomposed into two errors, the reducible and the irreducible error. The `Irreducible Error` (Bayes Error) is essentially noise that we do not want to learn (recall $Var(\varepsilon) = \sigma^2$). The `Reducible Error` is the error that we have some control over. It is often called the mean squared error of estimating $f$ using $\hat{f}$:
+
+
 
 This can be shown mathematically by decomposing the `Prediction Error or Risk`, also known as the `Total Error` or the `Generalization Error`. The risk of using $\hat{f} = \hat{Y}$ as a prediction for $Y$ is given by:
 
