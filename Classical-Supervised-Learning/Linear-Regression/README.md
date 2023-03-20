@@ -17,10 +17,10 @@ $$
 However, the true regression function $f(\textbf{X})$ is not known and hence we need to estimate it. In a linear regression problem, we try to find the `best linear predictor`:
 
 $$
-f(\textbf{x}) = \beta_0 + \beta_1 x_1 + \cdots + \beta_p x_p
+f(\textbf{X}) = \beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p
 $$
 
-The goal of linear regression is to calculate (or estimate) the coefficients $\beta$, also known as the `weights`. The process is based on a set of assumptions that must be satisfied for the estimates of the coefficients to be valid and reliable. Violations of these assumptions can lead to biased or inefficient estimates, as well as inaccurate predictions and inferences. The four key assumptions are:
+The goal of linear regression is to calculate (or estimate) the coefficients $\beta$, also known as the `weights`, to obtain $\hat{f}(\textbf{X})$ and make predictions $\hat{\textbf{Y}}$. Linear regression is based on a set of assumptions that must be satisfied for the estimates of the coefficients to be valid and reliable. Violations of these assumptions can lead to biased or inefficient estimates, as well as inaccurate predictions and inferences. The four key assumptions are:
 
 1. `Linearity`: Linear relationship between the response and the predictors. The linearity assumption can be checked by examining scatterplots of the dependent variable against each independent variable. If the relationship between the variables is not linear, a nonlinear transformation of the data may be necessary to satisfy the linearity assumption.
 2. `Independence`: The errors (and thus the observations) are independent of each other. Violations of the independence assumption can arise in a number of ways. Examples include autocorrelation (the value of the dependent variable at one time point is related to the value at a previous time point), or repeated measures (the same observation is measured multiple times).
