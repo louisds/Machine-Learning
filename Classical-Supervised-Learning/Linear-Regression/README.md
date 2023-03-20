@@ -161,7 +161,7 @@ One would think that adding more and more predictors will make the model better 
 Two terms related to overfitting are bias and variance. The `Bias` tells us how much (on average) the model's predictions are off from the true values. A model with **high bias** tends to **underfit** the data, which means that it does not capture the underlying patterns in the data well enough. This is often the result of a model being too simple (i.e. too few parameters). As a result, the model may miss important features or relationships between variables, leading to inaccurate predictions. The bias is calculated as the difference between the estimator's expected value and the true value of the variable being estimated. In most cases, the squared bias is used.
 
 $$
-\text{Bias}^2(\hat{f}) = \left( \mathbb{E}(\hat{f}) - f \right)^2
+\text{Bias}^2(f, \hat{f}) = \left( \mathbb{E}(\hat{f}) - f \right)^2
 $$
 
 Note that the bias of a model can not be calculated exactly, as we don't know the true function (or values). `Variance` of a model refers to the amount by which the predicted values of the model vary (on average) for different training data sets. In other words, it measures how sensitive the model is to changes in the training data. A model with **high variance** tends to **overfit** the data, which means that it captures noise or random fluctuations in the data rather than the underlying pattern. It is calculated as follows:
@@ -187,7 +187,7 @@ $$
 $$
 
 $$
-\Rightarrow \text{Risk} = \text{Bias}^2(\hat{f}) + \text{Var}(\hat{f})
+\Rightarrow \text{MSE}(f, \hat{f}) = \text{Bias}^2(f, \hat{f}) + \text{Var}(\hat{f})
 $$
 
 This expression is known as the `Bias-Variance Decomposition`. In a perfect world, we would be able to find some $\hat{f}$ that is unbiased (i.e. bias equals zero) and also has a low variance. However, in practice, this isn’t always possible. It turns out that there is a `Bias-Variance Tradeoff`. That is, often, the less bias in our estimation, the higher the variance (and vice versa). Complex models tend to be unbiased, but highly variable. Simple models are often extremely biased, but have low variance. This relation is shown in the graphic below.
