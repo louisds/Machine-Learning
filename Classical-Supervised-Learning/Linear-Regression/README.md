@@ -14,7 +14,7 @@ $$
 f(\textbf{x}) = \mathbb{E} \left(Y | \textbf{X} = \textbf{x} \right)
 $$
 
-However, the true regression function $f(\textbf{X})$ is not known and hence we need to estimate it. In a linear regression problem, we try to find the `best linear predictor`:
+However, the true regression function $f(\textbf{X})$ is not known and hence we need to estimate it. In a linear regression problem, we try to find the `Best Linear Predictor`:
 
 $$
 f(\textbf{X}) = \beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p
@@ -31,10 +31,10 @@ Linear regression is starting point in the machine learning journey, as it is th
 
 ## Simple Linear Regression
 
-Given the observed data $\mathcal{D} = \set{ (x_1, y_1), \cdots, (x_n, y_n) }$, `simple linear regression` is used to model the relationship between a single dependent variable ($y$) and a single independent variable ($x$):
+Given the observed data $\mathcal{D} = \set{ (x_1, y_1), \cdots, (x_n, y_n) }$, `Simple Linear Regression` is used to model the relationship between a single dependent variable ($Y$) and a single independent variable ($X$):
 
 $$
-y = \beta_0 + \beta_1 x + \varepsilon
+Y = \beta_0 + \beta_1 X + \varepsilon
 $$
 
 where $\beta_0$ is the `intercept` (the value of $y$ when $x=0$) and $\beta_1$ the `slope` (the change in $y$ for a one-unit increase in $x$). The goal of simple linear regression is to find estimations $\hat{\beta_0}$ and $\hat{\beta_1}$ as close as possible to the true ones, such that the predicted values $\hat{y}$ are as close as possible to the actual values of $y$. For this purpose, we use a method called least squares regression, where we minimize the sum of the squared residuals (`SSR`):
@@ -55,7 +55,7 @@ $$
 
 where $\bar{x}$ and $\bar{y}$ are the mean of respectively x and y.
 
-In practice, it is much cleaner and easier to work with vector notations (will be useful later). We denote the `design matrix` $\mathbb{X}$ as:
+In practice, it is much cleaner and easier to work with vector notations (will be useful later). We denote the `Design Matrix` $\mathbb{X}$ as:
 
 $$
 \mathbb{X} = (\mathbb{1}, X) = \begin{pmatrix}
@@ -94,17 +94,17 @@ $$
 \hat{\boldsymbol{\beta}} = (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ \textbf{Y}
 $$
 
-This minimizer $\hat{\boldsymbol{\beta}}$ is called the `least square estimator` and can be used to make new predictions. We can further write $\hat{\textbf{Y}}$ as follows:
+This minimizer $\hat{\boldsymbol{\beta}}$ is called the `Least Square Estimator` and can be used to make new predictions. We can further write $\hat{\textbf{Y}}$ as follows:
 
 $$
 \hat{\textbf{Y}} = \mathbb{X} \ (\mathbb{X}^T \mathbb{X})^{-1} \ \mathbb{X}^T \ \textbf{Y} = \mathbb{H} \ \textbf{Y}
 $$
 
-where $\mathbb{H}$ is called the `projection matrix` (as $\hat{\textbf{Y}}$ is the projection of $\textbf{Y}$ onto the space spanned by the columns of $\mathbb{X}$). 
+where $\mathbb{H}$ is called the `Projection Matrix` (as $\hat{\textbf{Y}}$ is the projection of $\textbf{Y}$ onto the space spanned by the columns of $\mathbb{X}$). 
 
 ## Multiple Linear Regression
 
-In `multiple linear regression`, the feature vector $\textbf{x} \in \mathbb{R}^p$ is multi-dimensional:
+In `Multiple Linear Regression`, the feature vector $\textbf{x} \in \mathbb{R}^p$ is multi-dimensional:
 
 $$
 y = \beta_0 + \beta_1 \ x_1 +  \beta_2 \ x_2 + \cdots + \beta_p \ x_p + \varepsilon
@@ -125,19 +125,13 @@ Due to the similarity of the algebraic expression, the same formula for the leas
 
 ## Model Validation
 
-We are most interested in how the model will perform on unseen data, but what if we don't have other data. To solve this issue, we can randomly split the data into a training and a test set (for example a 80-20 split). The training data is going to be used to fit the model, while the test set is meant for model evaluation. The most popular evaluation metric in linear regression is the `mean square error (MSE)`, calculated as:
+We are most interested in how the model will perform on unseen data, but what if we don't have other data. To solve this issue, we can randomly split the data into a training and a test set (for example a 80-20 split). The training data is going to be used to fit the model, while the test set is meant for model evaluation. The most popular evaluation metric in linear regression is the `Mean Square Error (MSE)`, calculated as:
 
 $$
 MSE = \frac{SSR}{n} =  \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_i)^2
 $$
 
-The smaller the MSE, the closer the predicted values are to the measured observations. In an algebraic context, this can be written as:
-
-$$
-MSE = \mathbb{E} \left(  \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 \right)
-$$
-
-where $\mathbb{E}$ is the expected value. Unfortunately, we cannot interpret many insights from one single result but it gives us a real number to compare against other model results and help us select the best regression model. 
+The smaller the MSE, the closer the predicted values are to the measured observations. Unfortunately, we cannot interpret many insights from one single result but it gives us a real number to compare against other model results and help us select the best regression model. 
 
 While the Mean Square Error (MSE) is an absolute measure of the goodness for the fit, the `R-Squared` value is a relative measure of how well the model fits dependent variables. It measures how much variability in the dependent variable (Y) can be explained by the model. It can be calculated as:
 
@@ -180,7 +174,7 @@ Bias and variance are two sides of the same coin. As squared bias decreases, the
 
 ## Bias-Variance Tradeoff
 
-Suppose that we obtain some $\hat{f} = \hat{y}$, how well does it estimate $f$? We define the `Prediction Error (or Risk)` using $\hat{f} = \hat{Y}$ as a prediction for $Y$ as:
+Suppose that we obtain some $\hat{f} = \hat{y}$, how well does it estimate $f$? We define the `Prediction Error (or Risk)` using $\hat{f}(\textbf{X})$ as a prediction for $Y$ as:
 
 $$
 R(\hat{f}) = \mathbb{E}(Y - \hat{f})^2 = \underbrace{\mathbb{E}(f-\hat{f})^2}_{\text{Reducible Error}} +  \underbrace{\mathbb{E}(Y - f)^2}_{\text{Irreducible Error } \ \sigma^2}
