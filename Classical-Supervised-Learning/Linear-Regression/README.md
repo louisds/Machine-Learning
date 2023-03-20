@@ -227,6 +227,8 @@ $$
 
 Choose the $\lambda$ that leads to the lowest $\hat{MSE}$. An important property of Ridge Regression is that the weights $\beta$ will never be exactly equal to zero, no matter how big $\lambda$ is. In other words, Ridge regression does not take advantage of sparsity and will never drop unimportant covariates, as can be seen in the ridge regularization paths below. In some cases this is not wanted and we want to keep only a select number of features. Lasso regression solves this issue by capturing `sparsity` while still keeping `convexity`. 
 
+Note that, for both lasso and ridge regression, it is important to standardize the features. Both methods put constraints on the size of the coefficients $\beta$ and we don't want the magnitude of each feature to affect the regularization process. 
+
 ## Lasso Regression (L1 Regularization)
 
 In case of `Lasso Regression`, the 1-norm is used in the penalization term instead of the 2-norm:
@@ -235,13 +237,25 @@ $$
 \hat{\boldsymbol{\beta}} = \text{Argmin}_{\boldsymbol{\beta}} \left( \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 + \lambda  \lVert \boldsymbol{\beta} \rVert^2_1 \right)
 $$
 
-Unfortunately, this optimization problem does not have a closed form solution. Instead, we will have to minimize the loss through coordinate descent, also known as `Iterative Soft Thresholding`, which will not be discussed here. After obtaining the lasso estimator $\hat{\boldsymbol{\beta}}(\lambda)$, we can define the set of non-zero coefficients for a particular value of $\lambda$:
+The result will be a $\hat{\boldsymbol{\beta}}$-vector where, depending on the magnitude of $\lambda$, some of the $\beta$'s will be zero (i.e. sparsity). Unfortunately, this optimization problem does not have a closed form solution. Instead, we will have to minimize the loss through coordinate descent, also known as `Iterative Soft Thresholding`, which will not be discussed here. After obtaining the lasso estimator $\hat{\boldsymbol{\beta}}(\lambda)$, we can define the set of non-zero coefficients for a particular value of $\lambda$:
 
 $$
 \hat{S}(\lambda) = \set{j \ : \ \hat{\boldsymbol{\beta}}_j(\lambda) \neq 0}
 $$
 
+and use this set to re-fit the model by doing a least squares on the sub-model $\hat{S}(\lambda)$. In this way, the lasso automatically performs a model selection as well. To find the optimal $\lambda$, we perform a LOOCV on the re-fitted model and choose the $\lambda$ that leads to the lowest $\hat{MSE}$.
 
+## Elastic Net Regularization
+
+`Elastic Net Regularization` combines L1 and L2 regularization as follows:
+
+$$
+\hat{\boldsymbol{\beta}} = \text{Argmin}_{\boldsymbol{\beta}} \left( \lVert \textbf{Y} - \hat{\textbf{Y}} \rVert^2 + \lambda_1  \lVert \boldsymbol{\beta} \rVert^2_1 + \lambda_2  \lVert \boldsymbol{\beta} \rVert^2_2 \right)
+$$
+
+## Conclusion
+
+For a low dimensional (linear) prediction, we can use the least squares method to obtain a decent estimator $\hat{f}$. For high dimensional linear regression, however, we face a Bias-Variance Tradeoff: omitting too many variable causes bias, while including too many variables cause high variance. The key is to introduce regularization to prevent overfitting.
 
 
 
