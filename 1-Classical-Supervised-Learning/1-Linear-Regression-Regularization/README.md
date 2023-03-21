@@ -225,7 +225,9 @@ $$
 \hat{MSE}(\lambda) =  \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{-i})^2
 $$
 
-Choose the $\lambda$ that leads to the lowest $\hat{MSE}$. An important property of Ridge Regression is that the weights $\beta$ will never be exactly equal to zero, no matter how big $\lambda$ is. In other words, Ridge regression does not take advantage of sparsity and will never drop unimportant covariates, as can be seen in the ridge regularization paths below. In some cases this is not wanted and we want to keep only a select number of features. Lasso regression solves this issue by capturing `sparsity` while still keeping `convexity`. 
+Choose the $\lambda$ that leads to the lowest $\hat{MSE}$. An important property of Ridge Regression is that the weights $\beta$ will never be exactly equal to zero, no matter how big $\lambda$ is. In other words, Ridge regression does not take advantage of sparsity and will never drop unimportant covariates, as can be seen in the ridge regularization paths in the figure below. In some cases this is not wanted and we want to keep only a select number of features. Lasso regression solves this issue by capturing `sparsity` while still keeping `convexity`. 
+
+<p align="center"> <img src="../images/hiv-ridge-paths.png"  width="500"> </p>
 
 Note that, for both lasso and ridge regression, it is important to standardize the features. Both methods put constraints on the size of the coefficients $\beta$ and we don't want the magnitude of each feature to affect the regularization process. 
 
