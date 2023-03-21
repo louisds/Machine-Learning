@@ -228,8 +228,10 @@ $$
 Choose the $\lambda$ that leads to the lowest $\hat{MSE}$. Instead of doing LOOCV, one could also use a shortcut formula:
 
 $$
-\hat{MSE}(\lambda) =  \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{-i})^2 = \frac{1}{n} \ \sum_{i=1}^n \frac{(y_i - \hat{y}_{i})^2}{(1 - \mathbb{H}_{ii})^2} \approx \frac{1}{\left(1 - \frac{p_{\lambda}}{n} \right)^2} \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{i})^2
+\hat{MSE}(\lambda) =  \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{-i})^2 = \frac{1}{n} \ \sum_{i=1}^n \frac{(y_i - \hat{y}_{i})^2}{(1 - \mathbb{H}_{ii})^2} \approx \frac{1}{\left(1 - \frac{p_{\lambda}}{n} \right)^2} \ \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{i})^2
 $$
+
+where $\mathbb{H}$ is the projection matrix for ridge regression and $p_{\lambda}$ the effective dimension, calculated as the trace of the projection matrix (sum of the diagonal elements). The `effective dimension` represents the effective amount of variables of the ridge regression model. 
 
 An important property of Ridge Regression is that the weights $\beta$ will never be exactly equal to zero, no matter how big $\lambda$ is. In other words, Ridge regression does not take advantage of sparsity and will never drop unimportant covariates, as can be seen in the ridge regularization paths in the figure below. In some cases this is not wanted and we want to keep only a select number of features. Lasso regression solves this issue by capturing `sparsity` while still keeping `convexity`. 
 
@@ -251,7 +253,15 @@ $$
 \hat{S}(\lambda) = \set{j \ : \ \hat{\boldsymbol{\beta}}_j(\lambda) \neq 0}
 $$
 
-and use this set to re-fit the model by doing a least squares on the sub-model $\hat{S}(\lambda)$. In this way, the lasso automatically performs a model selection as well. To find the optimal $\lambda$, we perform a LOOCV on the re-fitted model and choose the $\lambda$ that leads to the lowest $\hat{MSE}$.
+and use this set to re-fit the model by doing a least squares on the sub-model $\hat{S}(\lambda)$. In this way, the lasso automatically performs a model selection as well. To find the optimal $\lambda$, we perform a LOOCV on the re-fitted model and choose the $\lambda$ that leads to the lowest $\hat{MSE}$. Instead, one could also choose a shortcut formula:
+
+$$
+\hat{MSE}(\lambda) =  \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{-i})^2 = \frac{1}{n} \ \sum_{i=1}^n \frac{(y_i - \hat{y}_{i})^2}{(1 - \mathbb{H}_{ii})^2} \approx \frac{1}{\left(1 - \frac{s}{n} \right)^2} \ \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{i})^2
+$$
+
+where $s$ is the cardinality of the set S, or in other words, the amount of non-zero coefficients. Recall that the higher $\lambda$, the more coefficients will become zero, as can be seen in the lasso regularization paths below:
+
+<p align="center"> <img src="../images/hiv-lasso-paths.png"  width="500"> </p>
 
 ## Elastic Net Regularization
 
