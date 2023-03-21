@@ -228,7 +228,7 @@ $$
 Choose the $\lambda$ that leads to the lowest $\hat{MSE}$. Instead of doing LOOCV, one could also use a shortcut formula:
 
 $$
-\hat{MSE}(\lambda) =  \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{-i})^2 = \frac{1}{n} \ \sum_{i=1}^n \frac{(y_i - \hat{y}_{i})^2}{(1 - \mathbb{H}_{ii})^2}
+\hat{MSE}(\lambda) =  \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{-i})^2 = \frac{1}{n} \ \sum_{i=1}^n \frac{(y_i - \hat{y}_{i})^2}{(1 - \mathbb{H}_{ii})^2} \approx \frac{1}{\left(1 - \frac{p_{\lambda}}{n} \right)^2} \frac{1}{n} \ \sum_{i=1}^n (y_i - \hat{y}_{i})^2
 $$
 
 An important property of Ridge Regression is that the weights $\beta$ will never be exactly equal to zero, no matter how big $\lambda$ is. In other words, Ridge regression does not take advantage of sparsity and will never drop unimportant covariates, as can be seen in the ridge regularization paths in the figure below. In some cases this is not wanted and we want to keep only a select number of features. Lasso regression solves this issue by capturing `sparsity` while still keeping `convexity`. 
