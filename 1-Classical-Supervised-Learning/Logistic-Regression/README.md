@@ -117,12 +117,10 @@ log\left(\frac{\mathbb{P}(Y = 1 | X = \textbf{x} )}{\mathbb{P}(Y = 0 | X = \text
 $$
 
 $$
-\cdots
-
+...
 $$
 
 $$
-
 log\left(\frac{\mathbb{P}(Y = K-1 | X = \textbf{x} )}{\mathbb{P}(Y = 0 | X = \textbf{x} )}\right) =  \beta_{K-1, \ 0} + \boldsymbol{\beta}_{K-1}^T \textbf{x} \\
 $$
 
