@@ -114,16 +114,22 @@ Multinomial Logistic Regression extends the logistic regression model to $K > 2$
 
 $$
 log\left(\frac{\mathbb{P}(Y = 1 | X = \textbf{x} )}{\mathbb{P}(Y = 0 | X = \textbf{x} )}\right) =  \beta_{1, \ 0} + \boldsymbol{\beta}_1^T \textbf{x} \\
-\ \\
-\cdots \\
-\ \\
+$$
+
+$$
+\cdots
+
+$$
+
+$$
+
 log\left(\frac{\mathbb{P}(Y = K-1 | X = \textbf{x} )}{\mathbb{P}(Y = 0 | X = \textbf{x} )}\right) =  \beta_{K-1, \ 0} + \boldsymbol{\beta}_{K-1}^T \textbf{x} \\
 $$
 
 or equivalently:
 
 $$
-\begin{aligned} p_k (\textbf{x}) = \mathbb{P}(Y = k \ | \ X = \textbf{x} ) = \ & \frac{e^{\beta_{k, \ 0} + \boldsymbol{\beta}_k^T \textbf{x}}}{1 + \sum_l^{K-1} e^{\beta_{l, 0} + \boldsymbol{\beta}_l^T \textbf{x}}}
+\begin{aligned} p_k (\textbf{x}) = \mathbb{P}(Y = k \ | \ X = \textbf{x} ) = \ & \frac{e^{\beta_{k, \ 0} + \boldsymbol{\beta}_k^T \textbf{x}}}{1 + \sum e^{\beta_{l, 0} + \boldsymbol{\beta}_l^T \textbf{x}}}
 \quad \quad \text{for} \ \ k = 1, \ \dots,\ K-1 \\
 \ \\
 = \ & \text{Softmax} \ (0, \ \beta_{1, \ 0} + \boldsymbol{\beta}_1^T \textbf{x}, \ \dots
