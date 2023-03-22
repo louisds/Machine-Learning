@@ -112,7 +112,7 @@ Gradient Descent is a first-order, iterative, optimization algorithm to find the
 
 2. For a positive gradient, the loss goes down by decreasing $\beta$ (and vice versa), so update the weights in the opposite direction of the gradient.
 
-One full iteration over the whole training set is called an `epoch`. Mathematically, the update procedure can be written as follows:
+One full iteration over the whole training set is called an `Epoch`. Mathematically, the update procedure can be written as follows:
 
 $$
 \beta_j \leftarrow \beta_j - \eta \ \frac{\partial \mathcal{L}(\boldsymbol{\mathbf{x}, y,\beta})}
@@ -179,14 +179,92 @@ $$
 
 ## Model Evaluation
 
-How do we evaluate the performance of a classification model? The most straightforward metric is the accuracy, which gives the percentage of correctly classified samples:
+How do we evaluate the performance of a classification model? The most straightforward metric is the `Accuracy`, which gives the percentage of correctly classified samples:
 
 $$
 \text{Accuracy} = \frac{1}{n} \sum_{i = 1}^{n} I (\hat{y}_i = y_i)
 $$
 
+One should be aware that only using accuracy as the metric for model evaluation is a bad habit. For example, in case of an unbalanced dataset (e.g. 90% spam emails and 10% non-spam), the classifier will have a high accuracy just by always guessing "spam". The model itself, however, does not perform and generalize well. A solution is to take a `Weighted Accuracy` where an average is taken of the accuracies for each individual class. In practice it is recommended to also include other classification metrics in the result (or while training). The most common metrics for a binary classification problem will be explained below.
+
+##### Precision
+
+`Precision` is the accuracy of positive predictions. Of all positive predictions (e.g. mails flagged as spam), how many were correct. 
+
+$$
+\text{Precision} = \frac{TP}{TP+FP}
+$$
+
+* TP = True Positive = Spam emails flagged as spam
+
+* FP = False Positive = Non-spam emails flagged as spam
+
+##### Recall (aka. sensitivity, hit rate, TPR)
+
+`Recall` is the ratio of positive instances that are correctly classified by the classifier. Of spam emails, how many are correctly flagged as spam.
+
+$$
+\text{Recall} = \frac{TP}{TP+FN}
+$$
+
+* FN = False Negative = Spam emails flagged as non-spam
+
+##### F1-score
+
+`F1-score` is a metric that combines Precision and Recall by taking the harmonic mean (gives more weight to low values than regular mean). 
+
+$$
+F_1 = \frac{2}{\frac{1}{Precision} + \frac{1}{Recall}}
+$$
+
+The classifier will only get a high $F_1$-score if both recall and precision are high.
+
+##### Precision/Recall Trade-Off
+
+The $F_1$-score favors classifiers that have similar precision and recall, but this is not always wanted. Two examples:
+
+* If we would train a classifier to flag videos as being safe for kids, we want to reduce the amount of non-safe videos being flagged as safe (FP), so we want a high precision. The trade-off is that we will have a lot of safe videos being falsely rejected (low recall).
+
+* If we would train a classifier to detect thiefs in shops, we want to reduce the amount of thiefs that are flagged as non-thiefs (FN), so we want a high recall. The trade-off is that we will have a lot of non-thiefs being falsely flagged as thiefs (low precision).
+
+Moral of the story: increasing precision reduces recall, and vice versa. If we increase the `Decision Threshold` (e.g. higher than 0.5), we are being stricter and we will have more FNs (e.g. flagging safe videos as non-safe), which lowers the recall. However, it lowers the FPs (e.g. flagging non-safe videos as safe), hence a higher precision.
+
+Overall, increasing the threshold will lower the recall (always the case) and increase the precision (sometimes it can go down a bit as well, as it depends on total of predicted TRUE-values).
+
+The `PR (Precision-Recall) curve` plots the precision against recall. It is constructed by calculating the precision and recall for different values of the threshold and is a (most of the time) decreasing function - as precision decreases for decreasing recall.
+
+##### Specificity (aka. selectivity, TNR)
+
+The `Specificity` or `Selectivity` is the ratio of negative instances that are correctly classified as negative. Of all negative predictions (e.g. mails flagged as non-spam), how many were correct. In other words, what is the percentage of non-spam mails that were flagged as non-spam. 
+
+$$
+\text{Specificity} = \frac{TN}{TN+FP}
+$$
+
+* TN = True Negative = Non-spam emails flagged as non-spam
+
+##### False alarm ratio (aka. fall-out, FPR)
+
+The `False Alarm Ratio` is the ratio of negative instances that are incorrectly classified as positive. Of all negative predictions (e.g. mails flagged as non-spam), how many were incorrect. In other words, what is the percentage of non-spam mails that were flagged as spam. 
+
+$$
+\text{False Alarm Ratio} = \frac{FP}{TN+FP} = 1 - \text{Specificity}
+$$
+
+##### ROC-curve and AUC
+
+The `ROC (Receiver Operating Characteristic) Curve` plots the TPR (Recall) against the FPR (False alarm ratio). This is an increasing function, as the higher the recall (TPR), the more false positives (FPs) the classifier produces. The diagonal of the diagram is the ROC curve of a purely random classifier. A good classifier stays away as far as possible from this line (towards the top left corner).
 
 
 
+The `AUC (Area Under the Curve)` is a way of comparing the ROC curve of two classifiers. A perfect classifier will for example have an AUC equal to one. A random classifier will have an AUC equal to 0.5. 
 
-## Two Flavours of Classifiers
+##### PR vs. ROC curve
+
+Choose the PR-curve whenever the positive class is rare (e.g. not a lot of spam mails) or when you care more about FPs (e.g. flagging non-spam mails as spam) than FNs (e.g. flagging spam mails as non-spam). The ROC curve might look really good (e.g. high AUC), but this can be due to the fact that there are only a few observations of the positive class. 
+
+
+
+## Conclusion
+
+Logistic Regression is one of the most basic classification algorithms and can be used for both binary and multiclass classification. As there is no closed form solution, an iterative procedure, called Stochastic Gradient Descent, has to be used. 
