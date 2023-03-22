@@ -37,12 +37,12 @@ $$
 which is basically just counting the amount of mistakes that our model makes and taking an average of it. The optimal classification rule that minimizes $R$ is called `Bayes Rule` and is defined as:
 
 $$
-h^*(x) =   \left\{
+h^*(x) =   \begin{cases}
     \begin{aligned}
       & 1 \quad \text{if} \ \ p(x) > \frac{1}{2}\\
       & 0 \quad \text{otherwise}
     \end{aligned}
-  \right.
+  \end{cases}
 $$
 
 where $p(X)$ denotes the regression function, which is the probablity that the outcome of $X$ belongs to the default class (we choose $Y = 1$ to be our default class):
@@ -74,12 +74,12 @@ $$
 which is the logistic regression function, also called the `sigmoid function` (or soft-max in case of multinomial classification). The sigmoid function takes any real value as an argument and maps it to a range between 0 and 1. After estimating the weights $\boldsymbol{\hat{\beta}}$, the following decision rule can be made:
 
 $$
-\hat{y} =   \left\{
+\hat{y} =   \begin{cases}
     \begin{aligned}
       & 1 \quad \text{if} \ \ \hat{p}(\textbf{x})  \geq \frac{1}{2}\\
       & 0 \quad \text{if} \ \ \hat{p}(\textbf{x})  < \frac{1}{2}\\
     \end{aligned}
-  \right.
+  \end{cases}
 $$
 
 ## Fitting a Logistic Regression Model
@@ -161,6 +161,7 @@ $$
 \begin{aligned} p_k (\textbf{x}) = \mathbb{P}(Y = k \ | \ X = \textbf{x} ) = 
 & \begin{cases} \frac{1}{1 + \sum e^{\beta_{l, 0} + \boldsymbol{\beta}_l^T \textbf{x}}}
 \quad \quad \text{for} \ \ k = 0 \\ \\ 
+\ \\
 \frac{e^{\beta_{k, \ 0} + \boldsymbol{\beta}_k^T \textbf{x}}}{1 + \sum e^{\beta_{l, 0} + \boldsymbol{\beta}_l^T \textbf{x}}}
 \quad \quad \text{for} \ \ k = 1, \ \dots,\ K-1 \\ \end{cases}
 \ \\
