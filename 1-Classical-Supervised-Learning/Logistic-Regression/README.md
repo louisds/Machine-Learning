@@ -56,7 +56,7 @@ $$
 How do we model $p(x)$ ?  Especially because $p(x)$ maps $x$ into the domain $[0, 1]$. For this purpose we perform a `Logit Transformation` :
 
 $$
-logit(p) = log\left(\frac{p}{1-p}\right)
+logit(p) = log\left(\frac{p}{1-p}\right) = log\left(\frac{\mathbb{P}(Y = 1 | X = \textbf{x} )}{\mathbb{P}(Y = 0 | X = \textbf{x} )}\right)
 $$
 
 This logit transformation (log-odds) is monotone and maps the interval $[0, 1]$ to $(-\infty, +\infty)$, which is easier for a regression function to map to. In case of logistic regression, this will be modeled as a linear regression model:
@@ -106,6 +106,35 @@ $$
 
 This loss function is called the `Log Loss` or `Binary Cross Entropy Loss`. Note that one could also add a regularization term to this loss function, just like in ridge and lasso regression. The next question is, how do we achieve a low value for this loss function?  The answer to this question is an iterative procedure called Stochastic Gradient Descent, which will be explained in the next section.
 
-
-
 ## Stochastic Gradient Descent
+
+## Multinomial Logistic Regression
+
+Multinomial Logistic Regression extends the logistic regression model to $K > 2$ classes. We again use a logit transformation, where we compare each class to the base class ($K = 0$). This gives:
+
+$$
+log\left(\frac{\mathbb{P}(Y = 1 | X = \textbf{x} )}{\mathbb{P}(Y = 0 | X = \textbf{x} )}\right) =  \beta_{1, \ 0} + \boldsymbol{\beta}_1^T \textbf{x} \\
+\ \\
+\cdots \\
+\ \\
+log\left(\frac{\mathbb{P}(Y = K-1 | X = \textbf{x} )}{\mathbb{P}(Y = 0 | X = \textbf{x} )}\right) =  \beta_{K-1, \ 0} + \boldsymbol{\beta}_{K-1}^T \textbf{x} \\
+$$
+
+or equivalently:
+
+$$
+\begin{aligned} p_k (\textbf{x}) = \mathbb{P}(Y = k \ | \ X = \textbf{x} ) = \ & \frac{e^{\beta_{k, \ 0} + \boldsymbol{\beta}_k^T \textbf{x}}}{1 + \sum_l^{K-1} e^{\beta_{l, 0} + \boldsymbol{\beta}_l^T \textbf{x}}}
+\quad \quad \text{for} \ \ k = 1, \ \dots,\ K-1 \\
+\ \\
+= \ & \text{Softmax} \ (0, \ \beta_{1, \ 0} + \boldsymbol{\beta}_1^T \textbf{x}, \ \dots
+, \ \beta_{K-1, \ 0} + \boldsymbol{\beta}_{K-1}^T \textbf{x})\end{aligned}
+$$
+
+The `Softmax Function` is a multi dimensional version of the sigmoid function and is a fundamental function for classification problems. The loss function in case of multinomial logistic regression is called the `Cross Entropy Loss` and is defined as follows:
+
+$$
+\mathcal{L}(\boldsymbol{\beta}) = -\sum_{i = 1}^{n} \ \sum_{k = 0}^{K-1}
+ I(y_i = k) \ log(p_k(x_i))
+$$
+
+## Model Evaluation
