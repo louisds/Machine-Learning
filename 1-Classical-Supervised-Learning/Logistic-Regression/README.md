@@ -19,8 +19,9 @@ Logistic Regression forms the perfect introduction to concepts like Stochastic G
 A binary classifier $h$ is a function that maps from $\mathcal{X}$ (domain of $X \in \mathbb{R}^p$)  to {0, 1}, e.g. $Y = 1$ being "spam" and $Y=0$ being "non-spam" in email classification. The classifier is linear if a linear function $H(X)$ exists such that $h(X) = 1$  if  $H(X) \geq 0$:
 
 $$
-H(\textbf{X}) = \beta_0 + \boldsymbol{\beta}^T \textbf{X} \\
+H(\textbf{X}) = \beta_0 + \boldsymbol{\beta}^T \textbf{X} 
 $$
+
 $$
 h(\textbf{X}) = I(H(\textbf{X}) \geq 0)
 $$
