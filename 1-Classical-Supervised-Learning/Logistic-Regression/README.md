@@ -20,7 +20,8 @@ A binary classifier $h$ is a function that maps from $\mathcal{X}$ (domain of $X
 
 $$
 H(\textbf{X}) = \beta_0 + \boldsymbol{\beta}^T \textbf{X} \\
-\ \\
+$$
+$$
 h(\textbf{X}) = I(H(\textbf{X}) \geq 0)
 $$
 
