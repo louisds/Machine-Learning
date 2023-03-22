@@ -2,8 +2,6 @@
 
 Logistic Regression is one of the most basic Machine Learning algorithms for classification tasks (e.g. spam detection). It models the relationship between a categorical response variable ($Y$) and one or more predictor variables ($X$). Based on the number and data type of the classes, there are different forms of logistic regression:
 
-
-
 1. `Binary Logistic Regression`: The target variable has two possible categorical values (e.g. spam vs. no spam).
 
 2. `Multinomial Logistic Regression`: The target variable has three or more possible categorical outcomes (e.g. handwritten digit classifier).
@@ -11,8 +9,6 @@ Logistic Regression is one of the most basic Machine Learning algorithms for cla
 3. `Ordinal Logistic Regression`: The target categorical variables are ordered (e.g. satisfaction ratings).
 
 Logistic Regression forms the perfect introduction to concepts like Stochastic Gradient Descent and classification evaluation metrics.
-
-
 
 ## Binary Logistic Regression
 
@@ -106,9 +102,42 @@ $$
 \mathcal{L}(\boldsymbol{\beta}) = -\sum y_i \ log(p(x_i))\ + \ (1-y_i) \ log\left(1-p(x_i) \ \right)
 $$
 
-This loss function is called the `Log Loss` or `Binary Cross Entropy Loss`. Note that one could also add a regularization term to this loss function, just like in ridge and lasso regression. The next question is, how do we achieve a low value for this loss function?  The answer to this question is an iterative procedure called Stochastic Gradient Descent, which will be explained in the next section.
+This loss function is called the `Log Loss` or `Binary Cross Entropy Loss`. Note that one could also add a regularization term to this loss function, just like in ridge and lasso regression. The next question is, how do we achieve a low value for this loss function? The standard (or most basic) approach is Newton's algorithm, where repetitivly a weighted least square regression is performed on a quadratic approximation. Newton's algorithm, however, will fail when we want to fit a big model (large $n$ and $p$). A more scalable iterative approach is gradient descent, which will be explained in the next section.
 
-## Stochastic Gradient Descent
+## Gradient Descent
+
+Gradient Descent is a first-order, iterative, optimization algorithm to find the minimum of a given function, which, in our case, is the loss function $\mathcal{L}(\boldsymbol{\beta})$. The loss function (or loss landscape) can be seen as a bowl, and the goal is to reach the minimum.  To achieve this goal, repeat the following steps iteratively for all the weights $\beta$:
+
+1. Compute the slope (gradient) of the loss function, i.e. first-order derivative, at the current point.
+
+2. For a positive gradient, the loss goes down by decreasing $\beta$ (and vice versa), so update the weights in the opposite direction of the gradient.
+
+One full iteration over the whole training set is called an `epoch`. Mathematically, the update procedure can be written as follows:
+
+$$
+\beta_j \leftarrow \beta_j - \eta \ \frac{\partial \mathcal{L}(\boldsymbol{\mathbf{x}, y,\beta})}
+{\partial \beta_j}
+$$
+
+where $\eta$ is the `Learning Rate` or step size. It is a key parameter is gradient descent that decides how much we update the parameters (i.e. how far are we going down the slope). This parameter needs to be chosen carefully: if the learning rate is too small, the training will take a very long time to converge. On the other hand, if the learning rate is too high, there is a chance we jump over the minimum and convergence will never be reached. A good practice is to lower the learning rate every few epochs. 
+
+
+
+To calculate the gradient $\partial \mathcal{L} / \partial \beta_j$, there are different approaches:
+
+- `Batch Gradient Descent`: The entire training set is taken into consideration to take a single step. We take the average of the gradients of all the training examples and then use that mean gradient to update our parameters.
+
+- `Stochastic Gradient Descent`: Instead of using the whole training set, we consider one observation at a time and use that gradient to update the weights.
+
+- `Mini-Batch Gradient Descent`: Use a batch of a fixed number of training examples (mini-batch) to approximate the gradient of Batch Gradient Descent. This option is sometimes refered to as Stochastic Gradient Descent as well.
+  
+  
+
+Each method has its own advantages and disadvantages. BGD often converges (especially in case of convex or relatively smooth error manifolds) to the global minimum of the loss function, whereas SGD has a higher chance of converging to a local minimum. This is because the gradient estimate in SGD is noisier and has more variance, which causes the optimization to jump around in the loss function space. The drawback of BGD is that is slow and computationally expensive (requires a lot of memory), which means it is not suggested for huge training samples. 
+
+
+
+By using Mini-Batch Gradient Descent, we can play around with the size of the mini-batch and find a balance between BGD and SGD. A lower `Batch Size` will lead to rapid learning, but a more volatile learning process with higher variance and a chance of converging to a local minimum. 
 
 ## Multinomial Logistic Regression
 
@@ -129,14 +158,18 @@ $$
 or equivalently:
 
 $$
-\begin{aligned} p_k (\textbf{x}) = \mathbb{P}(Y = k \ | \ X = \textbf{x} ) = \ & \frac{e^{\beta_{k, \ 0} + \boldsymbol{\beta}_k^T \textbf{x}}}{1 + \sum e^{\beta_{l, 0} + \boldsymbol{\beta}_l^T \textbf{x}}}
-\quad \quad \text{for} \ \ k = 1, \ \dots,\ K-1 \\
+\begin{aligned} p_k (\textbf{x}) = \mathbb{P}(Y = k \ | \ X = \textbf{x} ) = 
+& \begin{cases} \frac{1}{1 + \sum e^{\beta_{l, 0} + \boldsymbol{\beta}_l^T \textbf{x}}}
+\quad \quad \text{for} \ \ k = 0 \\ \\ 
+\frac{e^{\beta_{k, \ 0} + \boldsymbol{\beta}_k^T \textbf{x}}}{1 + \sum e^{\beta_{l, 0} + \boldsymbol{\beta}_l^T \textbf{x}}}
+\quad \quad \text{for} \ \ k = 1, \ \dots,\ K-1 \\ \end{cases}
+\ \\
 \ \\
 = \ & \text{Softmax} \ (0, \ \beta_{1, \ 0} + \boldsymbol{\beta}_1^T \textbf{x}, \ \dots
 , \ \beta_{K-1, \ 0} + \boldsymbol{\beta}_{K-1}^T \textbf{x})\end{aligned}
 $$
 
-The `Softmax Function` is a multi dimensional version of the sigmoid function and is a fundamental function for classification problems. The loss function in case of multinomial logistic regression is called the `Cross Entropy Loss` and is defined as follows:
+The `Softmax Function` is a multi dimensional version of the sigmoid function and is a fundamental function for classification problems. We choose the class with the highest probability as the predicted class. The loss function in case of multinomial logistic regression is called the `Cross Entropy Loss` and is defined as follows:
 
 $$
 \mathcal{L}(\boldsymbol{\beta}) = -\sum_{i = 1}^{n} \ \sum_{k = 0}^{K-1}
@@ -144,3 +177,15 @@ $$
 $$
 
 ## Model Evaluation
+
+How do we evaluate the performance of a classification model? The most straightforward metric is the accuracy, which gives the percentage of correctly classified samples:
+
+$$
+\text{Accuracy} = \frac{1}{n} \sum_{i = 1}^{n} I (\hat{y}_i = y_i)
+$$
+
+
+
+
+
+## Two Flavours of Classifiers
