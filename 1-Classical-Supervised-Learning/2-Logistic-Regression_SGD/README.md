@@ -121,8 +121,6 @@ $$
 
 where $\eta$ is the `Learning Rate` or step size. It is a key parameter is gradient descent that decides how much we update the parameters (i.e. how far are we going down the slope). This parameter needs to be chosen carefully: if the learning rate is too small, the training will take a very long time to converge. On the other hand, if the learning rate is too high, there is a chance we jump over the minimum and convergence will never be reached. A good practice is to lower the learning rate every few epochs. 
 
-
-
 To calculate the gradient $\partial \mathcal{L} / \partial \beta_j$, there are different approaches:
 
 - `Batch Gradient Descent`: The entire training set is taken into consideration to take a single step. We take the average of the gradients of all the training examples and then use that mean gradient to update our parameters.
@@ -130,12 +128,8 @@ To calculate the gradient $\partial \mathcal{L} / \partial \beta_j$, there are d
 - `Stochastic Gradient Descent`: Instead of using the whole training set, we consider one observation at a time and use that gradient to update the weights.
 
 - `Mini-Batch Gradient Descent`: Use a batch of a fixed number of training examples (mini-batch) to approximate the gradient of Batch Gradient Descent. This option is sometimes refered to as Stochastic Gradient Descent as well.
-  
-  
 
 Each method has its own advantages and disadvantages. BGD often converges (especially in case of convex or relatively smooth error manifolds) to the global minimum of the loss function, whereas SGD has a higher chance of converging to a local minimum. This is because the gradient estimate in SGD is noisier and has more variance, which causes the optimization to jump around in the loss function space. The drawback of BGD is that is slow and computationally expensive (requires a lot of memory), which means it is not suggested for huge training samples. 
-
-
 
 By using Mini-Batch Gradient Descent, we can play around with the size of the mini-batch and find a balance between BGD and SGD. A lower `Batch Size` will lead to rapid learning, but a more volatile learning process with higher variance and a chance of converging to a local minimum. 
 
@@ -187,7 +181,7 @@ $$
 
 One should be aware that only using accuracy as the metric for model evaluation is a bad habit. For example, in case of an unbalanced dataset (e.g. 90% spam emails and 10% non-spam), the classifier will have a high accuracy just by always guessing "spam". The model itself, however, does not perform and generalize well. A solution is to take a `Weighted Accuracy` where an average is taken of the accuracies for each individual class. In practice it is recommended to also include other classification metrics in the result (or while training). The most common metrics for a binary classification problem will be explained below.
 
-##### Precision
+#### Precision
 
 `Precision` is the accuracy of positive predictions. Of all positive predictions (e.g. mails flagged as spam), how many were correct. 
 
@@ -199,7 +193,7 @@ $$
 
 * FP = False Positive = Non-spam emails flagged as spam
 
-##### Recall (aka. sensitivity, hit rate, TPR)
+#### Recall (aka. sensitivity, hit rate, TPR)
 
 `Recall` is the ratio of positive instances that are correctly classified by the classifier. Of spam emails, how many are correctly flagged as spam.
 
@@ -209,7 +203,7 @@ $$
 
 * FN = False Negative = Spam emails flagged as non-spam
 
-##### F1-score
+#### F1-score
 
 `F1-score` is a metric that combines Precision and Recall by taking the harmonic mean (gives more weight to low values than regular mean). 
 
@@ -219,7 +213,7 @@ $$
 
 The classifier will only get a high $F_1$-score if both recall and precision are high.
 
-##### Precision/Recall Trade-Off
+#### Precision/Recall Trade-Off
 
 The $F_1$-score favors classifiers that have similar precision and recall, but this is not always wanted. Two examples:
 
@@ -233,7 +227,7 @@ Overall, increasing the threshold will lower the recall (always the case) and in
 
 The `PR (Precision-Recall) curve` plots the precision against recall. It is constructed by calculating the precision and recall for different values of the threshold and is a (most of the time) decreasing function - as precision decreases for decreasing recall.
 
-##### Specificity (aka. selectivity, TNR)
+#### Specificity (aka. selectivity, TNR)
 
 The `Specificity` or `Selectivity` is the ratio of negative instances that are correctly classified as negative. Of all negative predictions (e.g. mails flagged as non-spam), how many were correct. In other words, what is the percentage of non-spam mails that were flagged as non-spam. 
 
@@ -243,7 +237,7 @@ $$
 
 * TN = True Negative = Non-spam emails flagged as non-spam
 
-##### False alarm ratio (aka. fall-out, FPR)
+#### False alarm ratio (aka. fall-out, FPR)
 
 The `False Alarm Ratio` is the ratio of negative instances that are incorrectly classified as positive. Of all negative predictions (e.g. mails flagged as non-spam), how many were incorrect. In other words, what is the percentage of non-spam mails that were flagged as spam. 
 
@@ -251,19 +245,19 @@ $$
 \text{False Alarm Ratio} = \frac{FP}{TN+FP} = 1 - \text{Specificity}
 $$
 
-##### ROC-curve and AUC
+#### Confusion Matrix
+
+ A confusion matrix is a $(k \times k)$ table - with $k$ the amount of different classes - that serves as a great visual tool to show how well your model performed and which mistakes it made. The table has the actual class labels as the rows and the predicted class labels as the columns.
+
+#### ROC-curve and AUC
 
 The `ROC (Receiver Operating Characteristic) Curve` plots the TPR (Recall) against the FPR (False alarm ratio). This is an increasing function, as the higher the recall (TPR), the more false positives (FPs) the classifier produces. The diagonal of the diagram is the ROC curve of a purely random classifier. A good classifier stays away as far as possible from this line (towards the top left corner).
 
-
-
 The `AUC (Area Under the Curve)` is a way of comparing the ROC curve of two classifiers. A perfect classifier will for example have an AUC equal to one. A random classifier will have an AUC equal to 0.5. 
 
-##### PR vs. ROC curve
+#### PR vs. ROC curve
 
 Choose the PR-curve whenever the positive class is rare (e.g. not a lot of spam mails) or when you care more about FPs (e.g. flagging non-spam mails as spam) than FNs (e.g. flagging spam mails as non-spam). The ROC curve might look really good (e.g. high AUC), but this can be due to the fact that there are only a few observations of the positive class. 
-
-
 
 ## Conclusion
 
