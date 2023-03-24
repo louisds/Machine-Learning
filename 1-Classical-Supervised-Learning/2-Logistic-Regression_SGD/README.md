@@ -262,3 +262,7 @@ Choose the PR-curve whenever the positive class is rare (e.g. not a lot of spam 
 ## Conclusion
 
 Logistic Regression is one of the most basic classification algorithms and can be used for both binary and multiclass classification. As there is no closed form solution, an iterative procedure, called Stochastic Gradient Descent, has to be used. 
+
+
+
+While logistic regression is a powerful and widely used classification algorithm, it does have some shortcomings. First of all, it assumes the data is linearly separable, which may not always be the case for complex problems. One should also be aware of perfectly separable classes. The logistic regression wants to generate probabilities very close to zero and one (because it is absolutely sure), which means it will keep on increasing the parameters (a probability of zero and one is only obtained for $H(x) \rightarrow \infty$) and the training process will never converge. To address this issue, we can regularize the parameters. 
