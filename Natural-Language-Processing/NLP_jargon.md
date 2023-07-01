@@ -460,8 +460,16 @@ Where C is the number of correct words and (S+D+C) is the number of words in the
 
 ## Scheduling Learning Rate
 
+For most state-of-the-art architectures, starting to train with a high learning rate that gradually decreases at each epoch (or iteration) is a commonly adopted adaptive learning rate sheduling strategy.
+
 ## Label Smoothening
 
 When using deep learning models for classification tasks, we usually encounter the following problems: overfitting, and overconfidence. Overfitting is well studied and can be tackled with early stopping, dropout, weight regularization etc. On the other hand, we have less tools to tackle overconfidence. Label smoothing is a regularization technique that addresses both problems.
 
 Label smoothing replaces one-hot encoded label vector $y_{hot}$ with a mixture of $y_{hot}$ and the uniform distribution. Label smoothing is used when the loss function is cross entropy, and the model applies the softmax function to the penultimate layer’s logit vectors z to compute its output probabilities p. Original one-hot encoded labels encourages largest possible logit gaps to be fed into the softmax function. Intuitively, large logit gaps combined with the bounded gradient will make the model less adaptive and too confident about its predictions. In contrast, smoothed labels encourages small logit gaps, which restrains the largest logit from becoming much bigger than the rest. This results in better model calibration and prevents overconfident predictions.
+
+## Warmup Steps
+
+
+
+
